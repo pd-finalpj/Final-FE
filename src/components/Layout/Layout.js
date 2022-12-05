@@ -1,10 +1,11 @@
+import Header from './header/header';
+import HeaderContainner from '../'
 
-
-const Layout =() =>{
+const Layout = ()=>{
     return(
-      <div>
-
-      </div>  
+        <div>
+        <Header/>
+        </div>
     );
 }
 export default Layout;

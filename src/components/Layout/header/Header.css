@@ -1,0 +1,40 @@
+.main{
+    width:100%;
+    height:56px;
+}
+.center{
+    padding: 1rem;
+    width: 170vh;
+    margin:0 35vh 0 35vh;
+    display:flex;
+}
+@media screen and (max-width: 568px){
+    .main{
+        width:100%;
+        height:56px;
+    }
+
+    .center{
+        padding: 1rem;
+        width: 170vh;
+        display:flex;
+    }
+}
+.Logo-Img{
+    width:200px;
+    height:30px;
+}
+.mypage{
+    width:20px;
+    height:20px;
+}
+.containner{
+    display: flex;
+}
+.icon{
+    float:right;
+}
+.search{
+    margin-left: 20vh;
+    margin-right: 30vh;
+}
