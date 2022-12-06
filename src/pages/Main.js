@@ -1,12 +1,12 @@
 import React from "react";
-
+import Nav from '../components/atoms/Nav/Nav';
 const Main =()=>{
 
 
 
 
     return(
-       <p> 11111111</p>
+        <Nav/>
     );
 }
 export default Main;
