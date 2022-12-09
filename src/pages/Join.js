@@ -1,11 +1,10 @@
+import axios from "axios";
 import { React, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "../../src/components/style/css/Login.css"
 // import $ from "jquery";
-import { post } from 'axios';
 
 
- 
 
 
 function Signup() {
@@ -17,7 +16,7 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [pwck, setpwck] = useState('')
-  const [phone, setPhone] = useState('')
+  const [phone_number, setphone_number] = useState('')
   const [age, setAge]= useState('')
 
   const [isId, setIsId] = useState(false)
@@ -25,7 +24,7 @@ function Signup() {
   const [isNick, setIsNick] = useState(false)
   const [isEmail, setIsEmail] = useState(false)
   const [isPassword, setIsPassword] = useState(false)
-  const [isPhone, setIsPhone] = useState(false);
+  const [isphone_number, setIsphone_number] = useState(false);
   const[isPwck,setIspwck] = useState(false);
   const[isAge,setIsAge] = useState(false);
 
@@ -35,7 +34,7 @@ function Signup() {
   const [nickMessage, setNickMessage] = useState('')
   const [emailMessage, setEmailMessage] = useState('')
   const [passwordMessage, setPasswordMessage] = useState('')
-  const [phoneMessage, setPhoneMessage] = useState();
+  const [phone_numberMessage, setphone_numberMessage] = useState();
   const [pwckMessage, setPwCkMessage] = useState();
   const [AgeMessage, setAgeMessage] = useState();
 
@@ -124,15 +123,15 @@ function Signup() {
       }
     },[])
 
-  const onChangePhone = useCallback(e => {
-    setPhone(e.target.value)
+  const onChangephone_number = useCallback(e => {
+    setphone_number(e.target.value)
     if (e.target.value.length < 11 || e.target.value.length >= 12) {
-      setPhoneMessage('전화번호 11자리를 입력해주세요!')
+      setphone_numberMessage('전화번호 11자리를 입력해주세요!')
       setColor({color: "red"})
-      setIsPhone(false)
+      setIsphone_number(false)
     } else {
-      setPhoneMessage('올바른 전화번호 형식입니다 :)')
-      setIsPhone(true)
+      setphone_numberMessage('올바른 전화번호 형식입니다 :)')
+      setIsphone_number(true)
       setColor({color: "blue"})
     }
   },[])
@@ -156,8 +155,12 @@ function Signup() {
     <div className="signup-body-back"style={{width:"40%", margin:"0 auto"}} >
       <div className="signup-body">
         <main className="form-signup">
-          <form action="http://localhost:8080/user/sign-up"
-          method="post"
+          <form 
+            onSubmit={async (e) =>{
+              e.preventDefault();
+              const data = await axios({url:"http://localhost:8080/user/sign-up",
+              method:"post", });
+            }}
           >
       <div className="inner" >
       <div className="headMessage">
@@ -264,23 +267,23 @@ function Signup() {
               />
               {age.length > 0 && <span className={`message ${isAge ? 'success' : 'error'}`}>{AgeMessage}</span>}
             </div>
-            {/* phone*/}   
-            <div className="form-floating" id="phone">
+            {/* phone_number*/}   
+            <div className="form-floating" id="phone_number">
               <input
-                name="mbr_phone"
+                name="mbr_phone_number"
                 type="text"
                 className="form-control UpdateSignUp_mbr_email"
-                id="floatingphone"
-                placeholder="Phone"
-                value={phone}
-                onChange = {onChangePhone}
+                id="floatingphone_number"
+                placeholder="phone_number"
+                value={phone_number}
+                onChange = {onChangephone_number}
               />
 
-              {phone.length > 0 && <span className={`message ${isPhone ? 'success' : 'error'}`}>{phoneMessage}</span>}
+              {phone_number.length > 0 && <span className={`message ${isphone_number ? 'success' : 'error'}`}>{phone_numberMessage}</span>}
             </div>
           
             <div className="btn-section">
-              <button className="signup-button" type="submit">
+              <button className="signup-button" >
                 Sign up
               </button>
               <Link to="/Login">
