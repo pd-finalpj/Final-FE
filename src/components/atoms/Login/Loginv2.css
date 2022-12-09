@@ -1,0 +1,26 @@
+.login_text{
+    font-size: 14px;
+    color: #4B5A64;
+    margin-top:0.5rem;
+    text-align: center;
+}
+.loginimg{
+    display: block;
+    float:left;
+    height:100%;
+    max-width: 468px;
+    position: absolute;
+    left: 0;
+    max-height: 1000px;
+}
+.slide1 {
+    max-width: 468px;
+    position: relative;
+    overflow: hidden;
+}
+.main{
+    margin-left:19rem;
+}
+.inner{
+    margin-top:3rem;
+}

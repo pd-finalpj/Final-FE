@@ -7,8 +7,8 @@ const Nav =()=>{
         <div class="navigation--container">
             <div class="navigation--wrapper">
                 <div class="navigation--item">
-                    <a href="/" class="selected">소셜 매치</a> 
-                    <a href="/rental/">구장 예약</a>
+                    <a href="/" class="selected">매물 찾기</a> 
+                    <a href="/rental/">공지사항</a>
                 </div>
             </div>
         </div>

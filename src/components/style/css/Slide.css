@@ -144,8 +144,8 @@ audio,
 video {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	vertical-align: baseline;
+	/* border: 0; */
+	/* vertical-align: baseline; */
 }
 
 ol,
@@ -795,7 +795,7 @@ form.orderForm .formWrap input:checked {
 	height: 24px;
 	position: absolute;
 	left: 0;
-	/* background-image: url('https://plab-football.s3.amazonaws.com/static/img/logo.svg'); */
+	/* background-image: url('https://plab-football.s3.amazonaws.com/static/logo.svg'); */
 }
 
 .btn.regist {
@@ -2850,6 +2850,7 @@ input:checked+.slider:before {
 
 .inputWrap input {
 	width: 100%;
+	margin-bottom: 1rem;
 }
 
 fieldset .inputWrap select {
@@ -6946,7 +6947,7 @@ td {
 
 	.aboutSec .secImg {
 		/*background-image: url('../img/img_newhero.png');*/
-		/* background-image: url('../img/about_last.png'); */
+		/* background-image: url('../about_last.png'); */
 		background-position: bottom;
 	}
 
@@ -12415,9 +12416,9 @@ form.orderForm .orderPay .payment .noticeBox p {
 }
 
 #dateNav .tabWrap {
-	max-width: 1024px;
-	margin: 0 auto;
-	padding: 10px 0px;
+	/* max-width: 1024px; */
+	/* margin: 0 auto; */
+	/* padding: 10px 0px; */
 }
 
 #dateNav .tabWrap .slick-prev:before,
@@ -13813,6 +13814,7 @@ form.orderForm .orderPay .payment .noticeBox p {
 }
 
 i {
+	border: solid white;
 	border-width: 0 2px 2px 0;
 	display: inline-block;
 	padding: 4px;
@@ -23655,12 +23657,12 @@ pre.info__list__txt-sm {
 	color: white;
 }
 
-/* .bibs_back--RED {
-	background-image: url('/static/img/bibs_red_back.svg');
+.bibs_back--RED {
+	/* background-image: url('/static/img/bibs_red_back.svg'); */
 }
 
 .bibs_back--YELLOW {
-	background-image: url('/static/img/bibs_yellow_back.svg');
+	/* background-image: url('/static/img/bibs_yellow_back.svg'); */
 }
 
 .bibs_back--YELLOW div {
@@ -23668,12 +23670,12 @@ pre.info__list__txt-sm {
 }
 
 .bibs_back--BLUE {
-	background-image: url('/static/img/bibs_blue_back.svg');
+	/* background-image: url('/static/img/bibs_blue_back.svg'); */
 }
 
 .bibs_back--GREEN {
-	background-image: url('/static/img/bibs_green_back.svg');
-} */
+	/* background-image: url('/static/img/bibs_green_back.svg'); */
+}
 
 .list-label {
 	font-size: 15px;
@@ -23701,10 +23703,10 @@ pre.info__list__txt-sm {
 	margin-right: 40px;
 }
 
-/* .team-select__img {
+.team-select__img {
 	width: 96px;
 	height: 96px;
-} */
+}
 
 .team-select__box {
 	background-color: #F8FAFB;
@@ -23763,4 +23765,121 @@ pre.info__list__txt-sm {
 	background-size: contain;
 	margin-bottom: 0px;
 	height: 150px;
+}
+/* Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
 }
