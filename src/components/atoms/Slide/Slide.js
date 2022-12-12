@@ -15,7 +15,7 @@ const Container = styled.div`
   align-items: center;
   margin: 0 12.5px;
   cursor: pointer;
-  position: relative;
+  position: relativ e;
 `;
 
 const Row = styled.div`
