@@ -1,35 +1,35 @@
 import "../../components/style/css/main.css"
+import Nav from'../../components/atoms/Nav/Nav.js'
 
 const Topic =()=>{
     
 
     return(
+
     <div className="mainwrap">
-        <div class="content">
-  <div class="contentWrapper">
+            < Nav />
+        <div className="content">
+  <div className="contentWrapper">
     </div>
-    <div class="topicBubble">
-        <h1 class="helpBB active" href="#">공지사항</h1>
+    <div className="topicBubble">
+        <h1 className="helpBB active" href="#">공지사항</h1>
     </div>
-    <div class="topicList">
+    <div className="topicList">
       <ul>
         
           <li>
             <a href="/">
-              <p class="time">2022년 12월 9일</p> 
+              <p className="time">2022년 12월 9일</p> 
               <h2>2파전 매치가 3파전으로 변경됩니다</h2>
             </a>
           </li>
         
           <li>
             <a href="/">
-               <p class="time">2022년 12월 9일</p>
+               <p className="time">2022년 12월 9일</p>
               <h2>월드컵 기간 소셜 매치 운영</h2>
             </a>
           </li>
-        
-    
-        
       </ul>
     </div>
   </div>

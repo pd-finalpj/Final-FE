@@ -1,0 +1,12 @@
+diff a/src/App.js b/src/App.js	(rejected hunks)
+@@ -4,7 +4,9 @@
+ import Main from "./pages/Main";
+ import Login from "./pages/Login";
+ import Join from "./pages/Join";
+-import {createStore} from 'redux';
++import Topic from "./pages/Topic/Topic.js";
++import TopicDetail from "./pages/Topic/TopicDetail.js";
++import {createStore} from 'redux';    
+ import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
+ 
+ 

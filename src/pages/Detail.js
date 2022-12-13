@@ -1,8 +1,10 @@
 import React from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
+import Map from "../components/atoms/Map/Map"
 
 const Detail = () => {
+
   return (
     <div className="content-back">
       <div class="content-wrap">
@@ -246,6 +248,9 @@ const Detail = () => {
                       <div className="print-area-content" data-print-value="3">
                         <div>
                           <h3>지도</h3>
+                          <div>
+                            <Map/>
+                          </div>
                         </div>
                       </div>
                       <div className="print-area-content" data-print-value="3">
