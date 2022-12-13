@@ -2,7 +2,7 @@ import { React, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "../../src/components/style/css/Login.css"
 // import $ from "jquery";
-import { post } from 'axios';
+// import { post } from 'axios';
 
 
  
