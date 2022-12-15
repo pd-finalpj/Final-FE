@@ -7,6 +7,7 @@ import Join from "./pages/Join";
 import Mypage from "./pages/Mypage"
 import Manager from "./pages/Manager/ManagerMyPage"
 import Footer from "./pages/Footer";
+import Header from "./pages/Header";
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -18,6 +19,9 @@ function App() {
   };
   return (
     <div style={maincontent}>
+      <Header>
+        
+      </Header>
       <BrowserRouter>
         <Routes>
           <Route element={<Main />} path="/" />

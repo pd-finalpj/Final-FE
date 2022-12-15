@@ -41,7 +41,7 @@ const Day =()=>{
 
 
 return(
-111
+    "데이터슬라이드자리"
     // {dateslide}
 
 );
