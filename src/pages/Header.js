@@ -3,8 +3,8 @@ const Header = () => {
     return (        
         <nav class="headerNavbar" >
             <div class ="headerNavbarLogo">
-                <a href="" target='_blank'>
-                    <img id="logo" src='https://ifh.cc/g/PNw9F7.png' border='0' alt="사이트로고" height="40" width="40"></img>
+                <a href="http://localhost:3000/">
+                    <img id="logo" src='https://ifh.cc/g/QxNCbw.png' border='0' alt="사이트로고" height="100" width="100"></img>
                 </a>
                 
             </div>
