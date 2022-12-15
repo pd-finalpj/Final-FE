@@ -1,0 +1,112 @@
+.view-top-category-list {
+    display: flex;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 700;
+    padding-right: 12px;
+    margin-right: 12px;
+  }
+  .list-cell.color-nice-blue {
+    color: #1739aa !important;
+  }
+  .view-top-category-list .list-cell {
+    position: relative;
+    font-size: 19px;
+    line-height: 28px;
+    font-weight: 700;
+    display: inline-block;
+    padding-right: 12px;
+    margin-right: 12px;
+  }
+  .view-top-category-info {
+    margin-top: 11px;
+    font-size: 13px;
+  }
+  .content-back {
+    background-color: #f2f5f7;
+  }
+  .content-wrap {
+    max-width: 1028px;
+    margin: 0 auto;
+  }
+  .load-adress {
+    float: righrt;
+  }
+  .view-top-category-table {
+    background-color: white;
+    padding: 1.3rem;
+    border-radius: 25px;
+  }
+  .btn {
+    width: fit-content;
+    background-color: #1570ff;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 12px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+  }
+  .view-top-btn-group {
+    display: inline-flex;
+    float: right;
+  }
+  .btn-group-cell {
+    padding: 0.5rem;
+  }
+  .print-area {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  tr,
+  th,
+  td,
+  col {
+    padding: 0.3rem;
+    border: 1px solid black;
+  }
+  .table.auction-iiprogress {
+    width: 90%;
+  }
+  .print-area-content {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  .input-flex {
+    display: flex;
+  }
+  .money-btn {
+    margin-top: 0px;
+    width: 140px;
+    text-align: center;
+  }
+  .btn.money {
+    margin: 0 auto;
+  }
+  .content-wrap {
+    max-width: 1028px;
+    margin: 0 auto;
+  }
+  .casenb{
+    width: 180px;
+    height: 30px;
+  }
+.backauction{
+  margin:0 auto;
+}
+
+.address {
+  height: 40px;
+}
