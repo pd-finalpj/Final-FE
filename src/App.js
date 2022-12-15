@@ -8,6 +8,11 @@ import Topic from "./pages/Topic/Topic.js";
 import TopicDetail from "./pages/Topic/TopicDetail.js";
 import Detail from "./pages/Detail";
 import { RecoilRoot } from "recoil";
+import Mypage from "./pages/Mypage";
+import Manager from "./pages/Manager/ManagerMyPage";
+import Footer from "./pages/Footer";
+// import {createStore} from 'redux';
+// import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
 function App() {
   const maincontent = {
@@ -24,9 +29,12 @@ function App() {
             <Route element={<Topic />} path="/Topic"></Route>
             <Route element={<TopicDetail />} path="/TopicDetail"></Route>
             <Route element={<Detail />} path="/Detail"></Route>
+            <Route element={<Mypage />} path="/Mypage"></Route>
+            <Route element={<Manager />} path="/Manager"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
+      <Footer></Footer>
     </div>
   );
 }
