@@ -7,7 +7,7 @@ const Login =()=>{
 
 
     return(
-        <div>
+        <div class="fadein">
             <LoginImg/>
             <LoginForm/>
         </div>

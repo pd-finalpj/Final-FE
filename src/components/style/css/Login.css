@@ -4888,3 +4888,15 @@ input[type="number"]::-webkit-inner-spin-button {
 .btn-section {
   margin-left: 11vh;
 }
+
+.fadein {
+    animation: fadein 3s;
+  }
+  @-webkit-keyframes fadein { 
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+  }
