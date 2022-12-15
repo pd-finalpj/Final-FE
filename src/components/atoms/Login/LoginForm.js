@@ -97,7 +97,7 @@ const Login = () => {
           </div>
           <div className="login_text">
             <a href="/join">
-              <span classNamename="idfont">회원가입</span>
+              <span className="idfont">회원가입</span>
             </a>
           </div>
         </form>

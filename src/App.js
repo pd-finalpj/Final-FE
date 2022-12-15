@@ -11,6 +11,7 @@ import { RecoilRoot } from "recoil";
 import Mypage from "./pages/Mypage";
 import Manager from "./pages/Manager/ManagerMyPage";
 import Footer from "./pages/Footer";
+import Header from "./pages/Header";
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -20,6 +21,7 @@ function App() {
   };
   return (
     <div style={maincontent}>
+      <Header></Header>
       <RecoilRoot>
         <BrowserRouter>
           <Routes>
@@ -35,6 +37,7 @@ function App() {
         </BrowserRouter>
       </RecoilRoot>
       <Footer></Footer>
+
     </div>
   );
 }
