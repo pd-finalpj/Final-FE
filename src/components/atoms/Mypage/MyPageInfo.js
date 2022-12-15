@@ -52,8 +52,8 @@ const MyPageInfo =()=>{
                 </li>
                 <li className="my-status_item my-status_item-cash">
                 <div>
-                    <p style={{ fontSize: "12px" }}>111</p>
-                    <p style={{ fontSize: "20px", fontweight: "700" }}>222</p>
+                    <p style={{ fontSize: "12px" }}>1111</p>
+                    <p style={{ fontSize: "20px", fontweight: "700" }}>2222</p>
                 </div>
                 <a href="/cash/charge">
                     <div className="my-cash">

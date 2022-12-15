@@ -23764,3 +23764,7 @@ pre.info__list__txt-sm {
 	margin-bottom: 0px;
 	height: 150px;
 }
+.mainwrap{
+	max-width: 1045px;
+	margin: 0 auto;
+}

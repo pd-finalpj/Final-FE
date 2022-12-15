@@ -3,25 +3,42 @@
     color: #4B5A64;
     margin-top:0.5rem;
     text-align: center;
+    padding-top: 1em;
+
 }
-.loginimg{
-    display: block;
-    float:left;
-    height:100%;
-    max-width: 468px;
-    position: absolute;
-    left: 0;
-    max-height: 1000px;
+.loginimg {
+  display: block;
+  float: left;
+  height: 100%;
+  max-width: 468px;
+  position: absolute;
+  left: 0;
+  max-height: 1000px;
 }
+
+@media (max-width: 1030px) {
+    .loginimg {
+        display: none; 
+    }
+  }
+
 .slide1 {
-    max-width: 468px;
-    position: relative;
-    overflow: hidden;
+  max-width: 468px;
+  position: relative;
+  overflow: hidden;
 }
+
 .main{
     margin-left:19rem;
     margin-bottom:30rem;
 }
+
+@media (max-width: 1030px) {
+    .main {
+        margin-left:0rem; 
+    }
+  }
+
 .inner{
     margin-top:3rem;
 }
