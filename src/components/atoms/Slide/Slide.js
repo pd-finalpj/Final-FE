@@ -220,7 +220,7 @@ function Slider() {
   const onMouseDown = (event) => {
     setIsClick(true);
     setMouseDownClientX(event.pageX);
-    console.log(slideRef);
+    // console.log(slideRef);
   };
   const onMouseLeave = (event) => {
     setIsClick(false);
@@ -271,7 +271,7 @@ function Slider() {
       clearTimeout(autoPage);
     };
   }, [index, isClick]);
-  console.log(`브라우저 사이즈 : ${windowWidth}`);
+  // console.log(`브라우저 사이즈 : ${windowWidth}`);
   return (
     <Wrapper>
       <LeftButton

@@ -18,6 +18,7 @@ function App() {
   const maincontent = {
     height: "100%",
   };
+
   return (
     <div style={maincontent}>
       <RecoilRoot>
