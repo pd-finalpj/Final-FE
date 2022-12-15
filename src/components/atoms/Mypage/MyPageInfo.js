@@ -1,6 +1,7 @@
 // 왼쪽거
 import React from "react";
 import "./MyPage.css";
+import "./MyPage2.css";
 
 const MyPageInfo = () => {
   return (
@@ -64,9 +65,9 @@ const MyPageInfo = () => {
             </div>
             <div>
               <img
-                alt=""
                 width="64px"
                 src="https://plab-football.s3.amazonaws.com/static/img/img_be_manner.png"
+                alt=""
               ></img>
             </div>
           </li>

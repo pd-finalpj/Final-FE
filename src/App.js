@@ -11,6 +11,8 @@ import { RecoilRoot } from "recoil";
 import Mypage from "./pages/Mypage";
 import Manager from "./pages/Manager/ManagerMyPage";
 import Footer from "./pages/Footer";
+import Header from "./pages/Header";
+import Register from "./pages/Register";
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <div style={maincontent}>
+      <Header></Header>
       <RecoilRoot>
         <BrowserRouter>
           <Routes>
@@ -32,10 +35,12 @@ function App() {
             <Route element={<Detail />} path="/Detail"></Route>
             <Route element={<Mypage />} path="/Mypage"></Route>
             <Route element={<Manager />} path="/Manager"></Route>
+            <Route element={<Register />} path="/Register"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
       <Footer></Footer>
+
     </div>
   );
 }
