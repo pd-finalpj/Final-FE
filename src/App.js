@@ -7,8 +7,7 @@ import Join from "./pages/Join";
 import Topic from "./pages/Topic/Topic.js";
 import TopicDetail from "./pages/Topic/TopicDetail.js";
 import Detail from "./pages/Detail";
-// import { createStore } from "redux";
-// import { Provider, useSelector, UseDispatch, connect } from "react-redux";
+import { RecoilRoot } from "recoil";
 
 function App() {
   const maincontent = {
@@ -16,16 +15,18 @@ function App() {
   };
   return (
     <div style={maincontent}>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Main />} path="/" />
-          <Route element={<Login />} path="/login" />
-          <Route element={<Join />} path="/join"></Route>
-          <Route element={<Topic />} path="/Topic"></Route>
-          <Route element={<TopicDetail />} path="/TopicDetail"></Route>
-          <Route element={<Detail />} path="/Detail"></Route>
-        </Routes>
-      </BrowserRouter>
+      <RecoilRoot>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Main />} path="/" />
+            <Route element={<Login />} path="/login" />
+            <Route element={<Join />} path="/join"></Route>
+            <Route element={<Topic />} path="/Topic"></Route>
+            <Route element={<TopicDetail />} path="/TopicDetail"></Route>
+            <Route element={<Detail />} path="/Detail"></Route>
+          </Routes>
+        </BrowserRouter>
+      </RecoilRoot>
     </div>
   );
 }

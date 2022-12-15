@@ -1,10 +1,9 @@
 import React from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
-import Map from "../components/atoms/Map/Map"
+import Map from "../components/atoms/Map/Map";
 
 const Detail = () => {
-
   return (
     <div className="content-back">
       <div class="content-wrap">
@@ -201,12 +200,7 @@ const Detail = () => {
                       </div>
                       <div class="print-area-content" data-print-value="2">
                         <div class="view-content-title-group">
-                          <h3 class="view-content-title">
-                            입찰 진행 내용
-                            <span class="small-info color-cornflower">
-                              입찰 당일
-                            </span>
-                          </h3>
+                          <h3 class="view-content-title">입찰 진행 내용</h3>
                         </div>
                         <table class="table auction-iiprogress">
                           <colgroup>
@@ -249,13 +243,27 @@ const Detail = () => {
                         <div>
                           <h3>지도</h3>
                           <div>
-                            <Map/>
+                            <Map />
                           </div>
                         </div>
                       </div>
                       <div className="print-area-content" data-print-value="3">
                         <div>
                           <h3>댓글</h3>
+                          <div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                          </div>
                         </div>
                       </div>
                     </div>

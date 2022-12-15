@@ -5,43 +5,42 @@ import "../../src/components/style/css/Login.css";
 // import $ from "jquery";
 
 function Signup() {
-  const [id, setuserId] = useState("");
+  const [userId, setuserId] = useState("");
   const [name, setName] = useState("");
   const [nickname, setnickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [pwck, setpwck] = useState("");
-  const [phone_number, setphone_number] = useState("");
+  const [passwordCheck, setpwck] = useState("");
+  const [phoneNumber, setphoneNumber] = useState("");
   const [age, setAge] = useState("");
 
-  const [isId, setIsId] = useState(false);
+  const [isuserId, setIsId] = useState(false);
   const [isName, setIsName] = useState(false);
   const [isNick, setIsNick] = useState(false);
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
-  const [isphone_number, setIsphone_number] = useState(false);
+  const [isphoneNumber, setIsphoneNumber] = useState(false);
   const [isPwck, setIspwck] = useState(false);
   const [isAge, setIsAge] = useState(false);
 
-  const [idMessage, setIdMessage] = useState();
+  const [userIdMessage, setuserIdMessage] = useState();
   const [nameMessage, setNameMessage] = useState("");
   const [nickMessage, setNickMessage] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
-  const [phone_numberMessage, setphone_numberMessage] = useState();
+  const [phoneNumberMessage, setphoneNumberMessage] = useState();
   const [pwckMessage, setPwCkMessage] = useState();
   const [AgeMessage, setAgeMessage] = useState();
-
   const [color, setColor] = useState({ color: "#1739a9" });
 
-  const onChangeId = useCallback((e) => {
+  const onChangeuserId = useCallback((e) => {
     setuserId(e.target.value);
     if (e.target.value.length < 2 || e.target.value.length > 12) {
-      setIdMessage("2글자 이상 12글자 미만으로 입력해주세요.");
+      setuserIdMessage("2글자 이상 12글자 미만으로 입력해주세요.");
       setColor({ color: "red" });
       setIsId(false);
     } else {
-      setIdMessage("올바른 아이디 형식입니다 :)");
+      setuserIdMessage("올바른 아이디 형식입니다 :)");
       setIsId(true);
       setColor({ color: "blue" });
     }
@@ -119,15 +118,15 @@ function Signup() {
     }
   }, []);
 
-  const onChangephone_number = useCallback((e) => {
-    setphone_number(e.target.value);
+  const onChangephoneNumber = useCallback((e) => {
+    setphoneNumber(e.target.value);
     if (e.target.value.length < 11 || e.target.value.length >= 12) {
-      setphone_numberMessage("전화번호 11자리를 입력해주세요!");
+      setphoneNumberMessage("전화번호 11자리를 입력해주세요!");
       setColor({ color: "red" });
-      setIsphone_number(false);
+      setIsphoneNumber(false);
     } else {
-      setphone_numberMessage("올바른 전화번호 형식입니다 :)");
-      setIsphone_number(true);
+      setphoneNumberMessage("올바른 전화번호 형식입니다 :)");
+      setIsphoneNumber(true);
       setColor({ color: "blue" });
     }
   }, []);
@@ -147,6 +146,37 @@ function Signup() {
     }
   }, []);
 
+  const onClicksignup = () => {
+    console.log("click login");
+    console.log("ID : ", userId);
+    console.log("Name : ", name);
+    console.log("nickName : ", nickname);
+    console.log("email : ", email);
+    console.log("PW : ", password);
+    console.log("Age : ", age);
+    console.log("phonenumber : ", phoneNumber);
+
+    axios({
+      method: "post",
+      url: "http://localhost:8080/user/signup",
+      data: {
+        userId: userId,
+        name: name,
+        age: age,
+        nickname: nickname,
+        email: email,
+        passwordCheck: passwordCheck,
+        password: password,
+      },
+    })
+      .then((res) => {
+        alert("다시 입력해주세요");
+        document.location.href("join");
+        // 작업 완료 되면 페이지 이동(새로고침)
+      })
+      .catch((error) => console.log(error.response));
+  };
+
   return (
     <div
       className="signup-body-back"
@@ -154,15 +184,7 @@ function Signup() {
     >
       <div className="signup-body">
         <main className="form-signup">
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const data = await axios({
-                url: "http://localhost:8080/user/sign-up",
-                method: "post",
-              });
-            }}
-          >
+          <form method="post">
             <div className="inner">
               <div className="headMessage">
                 <h2>집을 마련하고싶을 땐?</h2>
@@ -178,12 +200,12 @@ function Signup() {
                 placeholder="Id"
                 id="floatingInput"
                 typeName="Id"
-                value={id}
-                onChange={onChangeId}
+                value={userId}
+                onChange={onChangeuserId}
               />
-              {id.length > 0 && (
-                <span className={`message ${isId ? "success" : "error"}`}>
-                  {idMessage}
+              {userId.length > 0 && (
+                <span className={`message ${isuserId ? "success" : "error"}`}>
+                  {userIdMessage}
                 </span>
               )}
             </div>
@@ -266,10 +288,10 @@ function Signup() {
                 className="form-control UpdateSignUp_Password_ck"
                 id="pwck"
                 placeholder="password-check"
-                value={pwck}
+                value={passwordCheck}
                 onChange={onChangePwck}
               />
-              {pwck.length > 0 && (
+              {passwordCheck.length > 0 && (
                 <span className={`message ${isPwck ? "success" : "error"}`}>
                   {pwckMessage}
                 </span>
@@ -293,28 +315,30 @@ function Signup() {
               )}
             </div>
             {/* phone_number*/}
-            <div className="form-floating" id="phone_number">
+            <div className="form-floating" id="phoneNumber">
               <input
-                name="mbr_phone_number"
+                name="phoneNumber"
                 type="text"
                 className="form-control UpdateSignUp_mbr_email"
-                id="floatingphone_number"
+                id="floatingphoneNumber"
                 placeholder="phone_number"
-                value={phone_number}
-                onChange={onChangephone_number}
+                value={phoneNumber}
+                onChange={onChangephoneNumber}
               />
 
-              {phone_number.length > 0 && (
+              {phoneNumber.length > 0 && (
                 <span
-                  className={`message ${isphone_number ? "success" : "error"}`}
+                  className={`message ${isphoneNumber ? "success" : "error"}`}
                 >
-                  {phone_numberMessage}
+                  {phoneNumberMessage}
                 </span>
               )}
             </div>
 
             <div className="btn-section">
-              <button className="signup-button">Sign up</button>
+              <button className="signup-button" onClick={onClicksignup}>
+                Sign up
+              </button>
               <Link to="/Login">
                 <button
                   className="signup-button"
