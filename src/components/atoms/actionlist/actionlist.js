@@ -1,8 +1,9 @@
 import "../../style/css/main.css";
 import React, { useState } from "react";
 
-const actionlist = () => {
-  const listItem = [
+const Actionlist = () => {
+  const [deadbtn, setdeadbtn] = useState();
+  const ListItem = [
     {
       addressCode: "string",
       addressDetail: "string",
@@ -25,20 +26,27 @@ const actionlist = () => {
     },
   ];
 
-  const ListMap = listItem.map((listItem) => (
+  const diff =
+    new Date("2022-12-15T09:36:57.942Z").getTime() - new Date().getTime();
+
+  const deadline = diff / 1000 / 60 / 60;
+  if (deadline >= 50) {
+  }
+
+  const ListMap = ListItem.map((ListItem) => (
     <li class="list--match-schedule--item">
       <div class="list--match-schedule--item a">
         <div clwass="list--match-schedule__time">
-          <p>{listItem.auctionStartDate.substring(11, 16)}</p>
+          <p>{ListItem.auctionStartDate.substring(11, 16)}</p>
         </div>
         <div class="list--match-schedule__info">
           <p class="match--label early-bird">담당부서:</p>
           <div class="match-list__title">
-            <h3>{listItem.auctionItemName}</h3>
+            <h3>{ListItem.auctionItemName}</h3>
           </div>
           <div class="label--match-option">
-            <span class="match--option isMix">{listItem.location}</span>
-            <span>주거형태:{listItem.itemCategory}</span>{" "}
+            <span class="match--option isMix">{ListItem.location}</span>
+            <span>주거형태:{ListItem.itemCategory}</span>{" "}
           </div>
         </div>
         <div class="list--match-schedule__status">
@@ -52,6 +60,6 @@ const actionlist = () => {
     </li>
   ));
 
-  return <div style={{ width: "  70%", margin: "0 auto" }}>{ListMap}</div>;
+  return <ul style={{ width: "  70%", margin: "0 auto" }}>{ListMap}</ul>;
 };
-export default actionlist;
+export default Actionlist;
