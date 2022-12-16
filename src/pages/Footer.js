@@ -4,66 +4,76 @@ const Footer = () => {
             <div class="footerWrap">
                 <div class = "footerNav">
                     <ul>
-                        <h3>매물</h3>
+                        <h3>참가인원</h3>
                         <li>
-                            <a href="/">모든 매물</a>                            
-                        </li>                       
+                            <a href="https://gist.github.com/12OneTwo12">정정일</a>                            
+                        </li>
+                        <li>
+                            <a href="https://github.com/waitzero">정지영</a>                                                       
+                        </li>
+                        <li>
+                            <a href="https://github.com/kyuri-L">이규리</a>                                                       
+                        </li>
+                        <li>
+                            <a href="https://github.com/twghy">조재현</a>                                                       
+                        </li>
+                        <li>
+                            <a href="/">윤종현</a>                                                       
+                        </li>                                   
                     </ul>
                     
                     <ul class="footerDul">
-                        <h3>찾으시는 지역</h3>
+                        <h3>사용한 사이트</h3>
                         <li>
-                            <a href="/region/1/matches/">서울</a>
+                            <a href="https://www.plabfootball.com/">카피웹사이트</a>
+                        </li>
+                        <li>
+                            <a href="https://www.freelogodesign.org/">로고제작</a>
                         </li>
 
                         <li>
-                            <a href="/region/6/matches/">부산/울산/경남</a>
+                            <a href="https://www.iconfinder.com/">아이콘</a>
                         </li>
+
                     </ul>
 
                     <ul>
                         <h3>땅땅땅!</h3>
                         <li>
-                            <a href="/about/">땅땅땅! 소개</a>
+                            <a href="">땅땅땅! 소개</a>
                         </li>
                         <li>
-                            <a href="/cs/6/topics/">공지사항</a>
+                            <a href="">공지사항</a>
                         </li>
                         <li>
-                            <a href="/cs/">자주 묻는 질문</a>
+                            <a href="">자주 묻는 질문</a>
                         </li>                    
                     </ul>
 
                     <ul>
-                        <h3>소셜 미디어</h3>
+                        <h3>저작권 침해</h3>
                         <li>
-                            <a href="https://www.instagram.com/plabfootball/" target="_blank">인스타그램</a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/plabfootball/?eid=ARCbIV7J0pdkC-eNTR8kOKz3Ce0WYjnpR9McmLlOQheslzEURQrjx5wYdcwv0SAVs3DofNPxG6_iaY_f" target="_blank">페이스북</a>
-                        </li>
-                        <li>
-                            <a href="https://www.facebook.com/groups/plabfootball/" target="_blank">페이스북 그룹</a>
+                            <a href="https://github.com/waitzero" target="_blank">게시중단요청</a>
                         </li>
                     </ul>
                 
                 </div>
                 <div class = "company">
                     <h2>
-                        <a href="/">ddang.com</a>
-                        <p>집을 마련하고 싶을 땐, 땅땅땅!</p> 
+                        <a href="http://localhost:3000/">
+                            <img id="logo" src='https://ifh.cc/g/DKNAVf.png' border='0' alt="사이트로고" height="80" width="80"></img>
+                        </a>
+                        <br></br>
+                        <a href="">ddangddangddang.com</a>
+                        <p>집을 마련하고 싶을 땐, 땅땅땅!</p>
+                        {/* <a><img src='https://ifh.cc/g/DKNAVf.png' border='0'></img></a> */}
                     </h2>                 
                     <br></br>
                     <span>
-                        <a href="/term/">이용 약관 | </a>
-                        <a href="/privacy/">개인정보 처리방침 | </a> 
-                        땅땅땅! | 참고사이트 플랩 | Copyright | <b>PLAB</b> | All rights reserved. |                       
+                        <a href="">이용 약관 | </a>
+                        <a href="">개인정보 처리방침 | </a> 
+                        땅땅땅! | 참고사이트 "플랩" | <br></br>Copyright <b>PLAB</b>                
                     </span>                 
-                    {/* <span class="copyright">
-                        Copyright 
-                        <b>PLAB</b> 
-                        All rights reserved.
-                    </span>                  */}
                 </div>
             </div>         
         </div>
