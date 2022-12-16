@@ -1,4 +1,5 @@
 import "../../style/css/main.css";
+import React, { useState } from "react";
 
 const actionlist = () => {
   const listItem = [
@@ -23,13 +24,12 @@ const actionlist = () => {
       state: true,
     },
   ];
-  
 
   const ListMap = listItem.map((listItem) => (
     <li class="list--match-schedule--item">
       <div class="list--match-schedule--item a">
-        <div class="list--match-schedule__time">
-          <p>{listItem.auctionStartDate}</p>
+        <div clwass="list--match-schedule__time">
+          <p>{listItem.auctionStartDate.substring(11, 16)}</p>
         </div>
         <div class="list--match-schedule__info">
           <p class="match--label early-bird">담당부서:</p>
@@ -39,12 +39,13 @@ const actionlist = () => {
           <div class="label--match-option">
             <span class="match--option isMix">{listItem.location}</span>
             <span>주거형태:{listItem.itemCategory}</span>{" "}
-            <span>추천수:{listItem.hit}</span> <span></span>
           </div>
         </div>
         <div class="list--match-schedule__status">
           <div class="match-status isOpen">
-            <p>신청가능</p>
+            <div>
+              <div class="list--match-schedule__status"></div>
+            </div>
           </div>
         </div>
       </div>
