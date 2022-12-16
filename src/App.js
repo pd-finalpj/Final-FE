@@ -13,6 +13,8 @@ import Manager from "./pages/Manager/ManagerMyPage";
 import Footer from "./pages/Footer";
 import Header from "./pages/Header";
 import Register from "./pages/Register";
+import Bookmark from "./pages/Bookmark";
+
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -20,6 +22,7 @@ function App() {
   const maincontent = {
     height: "100%",
   };
+
   return (
     <div style={maincontent}>
       <Header></Header>
@@ -35,6 +38,7 @@ function App() {
             <Route element={<Mypage />} path="/Mypage"></Route>
             <Route element={<Manager />} path="/Manager"></Route>
             <Route element={<Register />} path="/Register"></Route>
+            <Route element={<Bookmark />} path="/Bookmark"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
