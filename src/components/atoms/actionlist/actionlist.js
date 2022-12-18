@@ -50,7 +50,7 @@ const Actionlist = () => {
 ];
 
   const ListMap = ListItem.map((ListItem) => (
-    <li class="list--match-schedule--item">
+    <li class="list--match-schedule--item" key={ListItem.addressCode}>
       <div class="list--match-schedule--item a">
         <div clwass="list--match-schedule__time">
           <p>{ListItem.auctionStartDate.substring(11, 16)}</p>

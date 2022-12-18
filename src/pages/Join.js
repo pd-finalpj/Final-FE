@@ -146,16 +146,13 @@ function Signup() {
     }
   }, []);
 
-  const onClicksignup = () => {
-    console.log("click login");
+  const onClicksignup= () =>{
+    console.log("click signup");
     console.log("ID : ", userId);
-    console.log("Name : ", name);
-    console.log("nickName : ", nickname);
-    console.log("email : ", email);
     console.log("PW : ", password);
-    console.log("Age : ", age);
-    console.log("phonenumber : ", phoneNumber);
-
+    console.log("pwck:", passwordCheck);
+    console.log("email", email);
+    console.log("phonenumber", phoneNumber);
     axios({
       method: "post",
       url: "http://localhost:8080/user/signup",
@@ -176,7 +173,6 @@ function Signup() {
       })
       .catch((error) => console.log(error.response));
   };
-
   return (
     <div
       className="signup-body-back"
