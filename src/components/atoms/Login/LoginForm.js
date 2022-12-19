@@ -1,12 +1,13 @@
 import "../../style/css/Login.css";
 import "./Loginv2.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
   const [userId, setInputId] = useState("");
   const [password, setInputPw] = useState("");
-
+  const navigate = useNavigate();
   const handleInputId = (e) => {
     setInputId(e.target.value);
   };
@@ -14,42 +15,29 @@ const Login = () => {
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
   };
+
   const onClickLogin = () => {
     console.log("click login");
     console.log("ID : ", userId);
     console.log("PW : ", password);
     axios({
       method: "post",
-      url: "http://localhost:8080/user/login",
+      url: "http://3.34.237.17:8080/user/login",
       data: {
         userId: userId,
         password: password,
       },
     })
-      .then((res) => {
-        console.log(res);
-        console.log("res.data.userId :: ", res.data.userId);
-        console.log("res.data.msg :: ", res.data.msg);
-        if (res.data.userId === undefined) {
-          // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
-          console.log("======================", res.data.msg);
-          alert("입력하신 id 가 일치하지 않습니다.");
-        } else if (res.data.userId === null) {
-          // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-          console.log(
-            "======================",
-            "입력하신 비밀번호 가 일치하지 않습니다."
-          );
-          alert("입력하신 비밀번호 가 일치하지 않습니다.");
-        } else if (res.data.userId === userId) {
-          // id, pw 모두 일치 userId = userId1, msg = undefined
-          console.log("======================", "로그인 성공");
-          sessionStorage.setItem("userid", userId); // sessionStorage에 id를 user_id라는 key 값으로 저장
-          document.location.href = "/";
+      .then(function (response) {
+        if (response.ACCESS_TOKEN) {
+          console.log(response.data);
+          localStorage.setItem("accessToken", response.ACCESS_TOKEN);
         }
-        // 작업 완료 되면 페이지 이동(새로고침)
       })
-      .catch((error) => console.log(error.response));
+      .catch(function (error) {
+        console.log(error);
+        alert("아이디와 비밀번호를 확인해주세요!!");
+      });
   };
   return (
     <div className="main">
