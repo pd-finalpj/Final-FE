@@ -14,6 +14,8 @@ import Footer from "./pages/Footer";
 import Header from "./pages/Header";
 import Register from "./pages/Register";
 import Bookmark from "./pages/Bookmark";
+import ManagerJoin from "./pages/ManagerJoin";
+
 
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
@@ -39,6 +41,7 @@ function App() {
             <Route element={<Manager />} path="/Manager"></Route>
             <Route element={<Register />} path="/Register"></Route>
             <Route element={<Bookmark />} path="/Bookmark"></Route>
+            <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
