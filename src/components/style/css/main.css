@@ -11554,11 +11554,11 @@ form.orderForm .orderPay .payment .noticeBox p {
 	font-size: 14px;
 }
 
-.main--match--container {}
 
 .list--match-schedule--container {
 	max-width: 1024px;
 	margin: 0 auto;
+	
 }
 
 .main--match--filter {
@@ -11734,7 +11734,7 @@ form.orderForm .orderPay .payment .noticeBox p {
 	-webkit-transform: rotate(45deg);
 }
 
-.list--match-schedule--item a {
+.list--match-schedule--item.a {
 	border-bottom: 1px solid #ddd;
 	display: flex;
 	align-items: center;

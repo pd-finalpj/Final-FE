@@ -3,10 +3,10 @@ const Header = () => {
     return (        
         <nav class="headerNavbar" >
             <div class ="headerNavbarLogo">
-                <a href="" target='_blank'>
-                    <img id="logo" src='https://ifh.cc/g/PNw9F7.png' border='0' alt="사이트로고" height="40" width="40"></img>
+                <a href="/">
+                    <img id="logo" src='https://ifh.cc/g/D9bX3q.png' border='0' alt="사이트로고" height="80" width="80"></img>
                 </a>
-                
+                 {/* 땅땅땅이미지https://ifh.cc/g/D9bX3q.png 땅3 이미지https://ifh.cc/g/QxNCbw.png */}
             </div>
             <div class="headerNavbarMain">
                 <div class="show-search">
