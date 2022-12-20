@@ -15,6 +15,7 @@ import Header from "./pages/Header";
 import Register from "./pages/Register";
 import Bookmark from "./pages/Bookmark";
 import ManagerJoin from "./pages/ManagerJoin";
+import TopiceRegister from "./pages/Topic/TopicRegister";
 
 
 // import {createStore} from 'redux';
@@ -42,6 +43,7 @@ function App() {
             <Route element={<Register />} path="/Register"></Route>
             <Route element={<Bookmark />} path="/Bookmark"></Route>
             <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
+            <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
