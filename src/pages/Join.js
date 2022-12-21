@@ -158,7 +158,7 @@ function Signup() {
 
     axios({
       method: "post",
-      url: "http://localhost:8080/user/signup",
+      url: "http://3.34.237.17:8080/user/signup",
       data: {
         userId: userId,
         name: name,

@@ -1,39 +1,61 @@
-import "../../components/style/css/main.css"
-import Nav from'../../components/atoms/Nav/Nav.js'
+import "../../components/style/css/main.css";
+import Nav from "../../components/atoms/Nav/Nav.js";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const Topic =()=>{
-    
+const Topic = () => {
+  const [datas, setDatas] = useState([]);
+  const [load, setLoad] = useState(false);
 
-    return(
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoad(true);
+      try {
+        const response = await axios.get(
+          "http://3.34.237.17:8080/notice/get/list"
+        );
+        console.log(response.data);
+        setDatas(response.data.noticeDetailsResponseList);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoad(false);
+    };
+    fetchData();
+  }, []);
 
+  return (
     <div className="mainwrap">
-            < Nav />
-        <div className="content">
-  <div className="contentWrapper">
+      <Nav />
+      <div className="content">
+        <div className="contentWrapper"></div>
+        <div className="topicBubble">
+          <h1 className="helpBB active" href="#">
+            공지사항
+          </h1>
+        </div>
+
+        <div className="topicList">
+          <ul>
+            {load ? (
+              <div>불러오는 중입니다</div>
+            ) : (
+              datas.map((noticeDetailsResponseList) => (
+                <li
+                  key={noticeDetailsResponseList.noticeId}
+                  noticeDetailsResponseList={noticeDetailsResponseList}
+                >
+                  <a href="/">
+                    <p className="time"></p>
+                    <h2>{noticeDetailsResponseList.title}</h2>
+                  </a>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
+      </div>
     </div>
-    <div className="topicBubble">
-        <h1 className="helpBB active" href="#">공지사항</h1>
-    </div>
-    <div className="topicList">
-      <ul>
-        
-          <li>
-            <a href="/">
-              <p className="time">2022년 12월 9일</p> 
-              <h2>2파전 매치가 3파전으로 변경됩니다</h2>
-            </a>
-          </li>
-        
-          <li>
-            <a href="/">
-               <p className="time">2022년 12월 9일</p>
-              <h2>월드컵 기간 소셜 매치 운영</h2>
-            </a>
-          </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-);
-}
+  );
+};
 export default Topic;

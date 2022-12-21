@@ -43,7 +43,6 @@ function App() {
         </BrowserRouter>
       </RecoilRoot>
       <Footer></Footer>
-
     </div>
   );
 }

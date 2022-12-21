@@ -1,10 +1,9 @@
-.login_text{
-    font-size: 14px;
-    color: #4B5A64;
-    margin-top:0.5rem;
-    text-align: center;
-    padding-top: 1em;
-
+.login_text {
+  font-size: 14px;
+  color: #4b5a64;
+  margin-top: 0.5rem;
+  text-align: center;
+  padding-top: 1em;
 }
 .loginimg {
   display: block;
@@ -17,10 +16,10 @@
 }
 
 @media (max-width: 1030px) {
-    .loginimg {
-        display: none; 
-    }
+  .loginimg {
+    display: none;
   }
+}
 
 .slide1 {
   max-width: 468px;
@@ -28,17 +27,17 @@
   overflow: hidden;
 }
 
-.main{
-    margin-left:19rem;
-    margin-bottom:30rem;
+.main {
+  margin-left: 19rem;
+  margin-bottom: 23rem;
 }
 
 @media (max-width: 1030px) {
-    .main {
-        margin-left:0rem; 
-    }
+  .main {
+    margin-left: 0rem;
   }
+}
 
-.inner{
-    margin-top:3rem;
+.inner {
+  margin-top: 3rem;
 }

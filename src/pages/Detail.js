@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
 import Map from "../components/atoms/Map/Map";
+import axios from "axios";
 
 const Detail = () => {
+  useEffect(() => {
+    axios
+      .get(
+        ` "http://3.34.237.17:8080/auction/get/list"?id=${dataId}&type=single`
+      )
+      .then((response) => {
+        if (response.data.success) {
+          console.log(response.data);
+        } else {
+          alert("상세 정보 가져오기를 실패했습니다.");
+        }
+      });
+  }, []);
   return (
     <div className="content-back">
       <div class="content-wrap">
@@ -247,26 +261,7 @@ const Detail = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="print-area-content" data-print-value="3">
-                        <div>
-                          <h3>댓글</h3>
-                          <div>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
                     <div>
                       <div class="content-right-body__wrap--sticky">
                         <div class="section-pc">
