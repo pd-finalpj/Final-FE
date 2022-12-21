@@ -48,12 +48,6 @@ const TopicDetail =()=>{
           <p class="pfMsg">원하는 답변을 얻을 수 없는 경우<br/>채널톡으로 문의해주세요</p>
         </div>
       </div>
-      <div class="articleBottom">
-        <p>다른 키워드로 찾아보세요</p>
-        <div class="helpSearch">
-          <input type="text" id="helpSearch" name="helpSearch" placeholder="키워드로 질문하기"/>
-        </div>
-      </div>
     </div>
 </div>
 </div>
@@ -62,3 +56,4 @@ const TopicDetail =()=>{
 
 }
 export default TopicDetail;
+      

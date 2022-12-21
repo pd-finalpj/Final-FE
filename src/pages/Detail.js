@@ -2,8 +2,12 @@ import React, { useEffect } from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
 import Map from "../components/atoms/Map/Map";
+<<<<<<< HEAD
 import axios from "axios";
 
+=======
+import Comment from"../components/atoms/Comment/Comment"
+>>>>>>> origin/dev
 const Detail = () => {
   useEffect(() => {
     axios
@@ -261,7 +265,6 @@ const Detail = () => {
                           </div>
                         </div>
                       </div>
-
                     <div>
                       <div class="content-right-body__wrap--sticky">
                         <div class="section-pc">
