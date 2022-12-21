@@ -8,7 +8,7 @@ const Topic =()=>{
 
     <div className="mainwrap">
             < Nav />
-        <div className="content">
+        <div idName="contentName" className="content">
   <div className="contentWrapper">
     </div>
     <div className="topicBubble">

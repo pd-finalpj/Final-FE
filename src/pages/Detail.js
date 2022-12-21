@@ -2,7 +2,7 @@ import React from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
 import Map from "../components/atoms/Map/Map";
-
+import Comment from"../components/atoms/Comment/Comment"
 const Detail = () => {
   return (
     <div className="content-back">
@@ -251,18 +251,7 @@ const Detail = () => {
                         <div>
                           <h3>댓글</h3>
                           <div>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
+                            <Comment/>
                           </div>
                         </div>
                       </div>
