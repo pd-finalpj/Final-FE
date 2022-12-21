@@ -41,10 +41,10 @@ const Login = () => {
             "입력하신 비밀번호 가 일치하지 않습니다."
           );
           alert("입력하신 비밀번호 가 일치하지 않습니다.");
-        } else if (res.data.userId === userId) {
+        } else if (res.ACCESS_TOKEN) {
           // id, pw 모두 일치 userId = userId1, msg = undefined
           console.log("======================", "로그인 성공");
-          sessionStorage.setItem("userid", userId); // sessionStorage에 id를 user_id라는 key 값으로 저장
+          localStorage.setItem('login-token', res.ACCESS_TOKEN); // sessionStorage에 id를 user_id라는 key 값으로 저장
           document.location.href = "/";
         }
         // 작업 완료 되면 페이지 이동(새로고침)

@@ -13,6 +13,8 @@ function Signup() {
   const [passwordCheck, setpwck] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
   const [age, setAge] = useState("");
+  const [department, setDepartment] = useState("");
+
 
   const [isuserId, setIsId] = useState(false);
   const [isName, setIsName] = useState(false);
@@ -22,6 +24,7 @@ function Signup() {
   const [isphoneNumber, setIsphoneNumber] = useState(false);
   const [isPwck, setIspwck] = useState(false);
   const [isAge, setIsAge] = useState(false);
+  const [isDepartment, setIsDepartment] = useState(false);
 
   const [userIdMessage, setuserIdMessage] = useState();
   const [nameMessage, setNameMessage] = useState("");
@@ -31,6 +34,7 @@ function Signup() {
   const [phoneNumberMessage, setphoneNumberMessage] = useState();
   const [pwckMessage, setPwCkMessage] = useState();
   const [AgeMessage, setAgeMessage] = useState();
+  const [DepartmentMessage, setDepartmentMessage] = useState("");
   const [color, setColor] = useState({ color: "#1739a9" });
 
   const onChangeuserId = useCallback((e) => {
@@ -130,6 +134,12 @@ function Signup() {
       setColor({ color: "blue" });
     }
   }, []);
+
+  const onchangedepartment = useCallback((e) => {
+    setDepartment(e.target.value);
+    
+  }, []);
+
   const onChangeAge = useCallback((e) => {
     setAge(e.target.value);
     let agecheck = /^[0-9]+$/;
@@ -307,6 +317,24 @@ function Signup() {
               {age.length > 0 && (
                 <span className={`message ${isAge ? "success" : "error"}`}>
                   {AgeMessage}
+                </span>
+              )}
+            </div>
+            {/* nickname */}
+            <div className="form-floating" id="department">
+              <input
+                name="department"
+                type="text"
+                className="form-control UpdateSignUpdepartment"
+                id="floatingdepartment"
+                placeholder="department"
+                typeName="department"
+                value={department}
+                onChange={onchangedepartment}
+              />
+              {nickname.length > 0 && (
+                <span className={`message ${isNick ? "success" : "error"}`}>
+                  {nickMessage}
                 </span>
               )}
             </div>
