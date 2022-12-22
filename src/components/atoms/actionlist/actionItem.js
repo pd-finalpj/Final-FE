@@ -1,8 +1,14 @@
 import { useState } from "react";
 
 const ActionItem = ({ filteringItemsResponseList }) => {
-  const { areaSize, auctionItemName, auctionEndDate, itemCategory, location } =
-    filteringItemsResponseList;
+  const {
+    auctionItemId,
+    areaSize,
+    auctionItemName,
+    auctionEndDate,
+    itemCategory,
+    location,
+  } = filteringItemsResponseList;
   var state = useState(0);
   const Enddata = filteringItemsResponseList.auctionEndDate;
   const diff = new Date(Enddata).getTime() - new Date().getTime();

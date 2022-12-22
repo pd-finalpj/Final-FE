@@ -1199,16 +1199,6 @@ h3 {
     padding: 15px;
 }
 
-button {
-    background-color: #1570FF;
-    border-radius: 12px;
-    padding: 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    color: white;
-}
 
 @media(min-width: 1024px) {
     .btn-wrap.bottom-fixed {

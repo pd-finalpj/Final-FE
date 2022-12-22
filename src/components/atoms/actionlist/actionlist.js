@@ -3,12 +3,13 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ActionItem from "./actionItem";
-import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Containner = styled.ul`
   width: "  70%";
   margin: "0 auto";
 `;
+
 const Actionlist = () => {
   const [datas, setDatas] = useState([]);
   const [load, setLoad] = useState(false);
@@ -17,7 +18,7 @@ const Actionlist = () => {
       setLoad(true);
       try {
         const response = await axios.get(
-          "http:///3.34.237.17:8080/auction-list"
+          "http:///3.34.237.17:8080/auction-list/"
         );
         console.log(response.data);
         setDatas(response.data.filteringItemsResponseList);
@@ -42,12 +43,12 @@ const Actionlist = () => {
         <div>기다림</div>
       ) : (
         datas.map((filteringItemsResponseList) => (
-          <Route>
+          <Link to={`/Detail/${filteringItemsResponseList.auctionItemId}`}>
             <ActionItem
               key={filteringItemsResponseList.auctionItemId}
               filteringItemsResponseList={filteringItemsResponseList}
             ></ActionItem>
-          </Route>
+          </Link>
         ))
       )}
     </Containner>

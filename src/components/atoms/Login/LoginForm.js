@@ -19,12 +19,12 @@ const Login = () => {
       },
     })
       .then((res) => {
-        console.log(res.data.access_token);
+        console.log(res.data.accessToken);
         //데이터에 access_token이 있다면
-        localStorage.setItem("access_token", res.data.access_token);
+        localStorage.setItem("access_token", res.data.accessToken);
         alert("로그인 성공");
         navigate("/");
-        console.log(res.data.access_token);
+        console.log(res.data.accessToken);
       })
       .catch((res) => {
         // 로그인 실패 시

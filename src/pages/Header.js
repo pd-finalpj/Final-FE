@@ -1,5 +1,8 @@
 import "../components/style/css/Header.css";
 const Header = () => {
+
+
+  
   return (
     <nav class="headerNavbar">
       <div class="headerNavbarLogo">
@@ -32,7 +35,7 @@ const Header = () => {
             ></input>
           </div>
         </div>
-        <a href="" target="_blank">
+        <a href="/Mypage" target="_blank">
           <img
             src="https://ifh.cc/g/mgQWrl.png"
             border="0"

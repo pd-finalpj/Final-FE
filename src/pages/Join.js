@@ -146,13 +146,7 @@ function Signup() {
     }
   }, []);
 
-  const onClicksignup= () =>{
-    console.log("click signup");
-    console.log("ID : ", userId);
-    console.log("PW : ", password);
-    console.log("pwck:", passwordCheck);
-    console.log("email", email);
-    console.log("phonenumber", phoneNumber);
+  const onClicksignup = () => {
     axios({
       method: "post",
       url: "http://3.34.237.17:8080/user/signup",

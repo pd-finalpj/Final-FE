@@ -17,7 +17,6 @@ import Bookmark from "./pages/Bookmark";
 import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
 
-
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -37,7 +36,7 @@ function App() {
             <Route element={<Join />} path="/join"></Route>
             <Route element={<Topic />} path="/Topic"></Route>
             <Route element={<TopicDetail />} path="/TopicDetail"></Route>
-            <Route element={<Detail />} path="/Detail"></Route>
+            <Route element={<Detail />} path="/Detail/:id"></Route>
             <Route element={<Mypage />} path="/Mypage"></Route>
             <Route element={<Manager />} path="/Manager"></Route>
             <Route element={<Register />} path="/Register"></Route>
