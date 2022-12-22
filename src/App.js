@@ -16,6 +16,7 @@ import Register from "./pages/Register";
 import Bookmark from "./pages/Bookmark";
 import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
+import AuctionResult from "./pages/AuctionResult";
 
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
@@ -43,6 +44,7 @@ function App() {
             <Route element={<Bookmark />} path="/Bookmark"></Route>
             <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
             <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
+            <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
