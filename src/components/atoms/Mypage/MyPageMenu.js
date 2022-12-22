@@ -12,7 +12,7 @@ const MyPageMenu = () => {
         <div class="my-menu">
           <ul class="my-menu_list">
             <li>
-              <a href="/mypage/myplab/">
+              <a href="/mypage/mylab/">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_myplab_color.svg"

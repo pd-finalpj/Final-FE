@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import "../components/style/css/Detail.css";
 import Slide from "../components/atoms/Slide/Slide";
 import Map from "../components/atoms/Map/Map";
-<<<<<<< HEAD
+
 import axios from "axios";
 
-=======
-import Comment from"../components/atoms/Comment/Comment"
->>>>>>> origin/dev
+// import Comment from"../components/atoms/Comment/Comment"
+import { useParams } from "react-router-dom";
+
 const Detail = () => {
+  const { dataId } = useParams();
+
   useEffect(() => {
     axios
       .get(
@@ -265,6 +267,26 @@ const Detail = () => {
                           </div>
                         </div>
                       </div>
+                      <div className="print-area-content" data-print-value="3">
+                        <div>
+                          <h3>댓글</h3>
+                          <div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div>
                       <div class="content-right-body__wrap--sticky">
                         <div class="section-pc">
