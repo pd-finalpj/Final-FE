@@ -3,23 +3,27 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const TopicRegister =()=>{
-  const [title, setTitle] = useState();
-  const [content, setContent] = useState();
- 
-    const onClickcreateTopic = () => {
-        console.log("Topic Title: ", title);
-        console.log("Topic content: ", content);
+  const title = useState("");
+  const content = useState("");
+  const token = localStorage.getItem("access_token");
 
+  const TopicCrate=()=>{
     axios ({
         method: "post",
-        url: "http://3.34.237.17:8080/topic",
-        data: {
-          title: title,
-          content: content
+        url: "http://3.34.237.17:8080/notice",
+        headers: {
+          Token: `${token}`
         },
+        data: {
+          title: `${title}`,
+          content: `${content}`
+        }
     })
-    }
-
+    .then((res) => {
+          console.log(res.data.noticeId);
+    })
+  };
+  
     return (
     <div>
         <div class="content">
@@ -44,7 +48,7 @@ const TopicRegister =()=>{
         </div>
 
         <div className="btn-section">
-              <button className="createTopic-button" onClick={TopicRegister}>
+              <button className="createTopic-button" onClick={TopicCrate}>
                 생성
               </button>
               <Link to="/topic">
