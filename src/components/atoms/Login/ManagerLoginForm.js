@@ -8,11 +8,15 @@ const ManagerLogin = () => {
   const [managerId, setManagerId] = useState("");
   const [password, setPw] = useState("");
   const navigate = useNavigate();
+  const token = localStorage.getItem("access_token");
 
   const onClickManagerLogin = () => {
     axios({
       method: "post",
       url: "http://3.34.237.17:8080/manager/login",
+      headers: {
+        Token: `${token}`
+      },
       data: {
         managerId: managerId,
         password: password,
