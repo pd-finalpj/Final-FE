@@ -16,6 +16,8 @@ import Register from "./pages/Register";
 import Bookmark from "./pages/Bookmark";
 import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
+import ManagerLogin from "./pages/ManagerLogin";
+
 
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
@@ -43,6 +45,7 @@ function App() {
             <Route element={<Bookmark />} path="/Bookmark"></Route>
             <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
             <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
+            <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>
