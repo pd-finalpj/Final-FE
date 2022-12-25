@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "../../style/css/Detail.css";
-import Slide from "../Slide/Slide";
+import DetailSlide from "../Slide/DetailSlide";
 import Map from "../Map/Map";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "../../../../node_modules/react-router-dom/dist/index";
 
 const Detail = (filteringItemsResponseList) => {
   let urlaxios = useParams();
@@ -11,6 +12,7 @@ const Detail = (filteringItemsResponseList) => {
   const [load, setLoad] = useState(false);
   const [faild, setFaild] = useState([]);
   const [amount, setAmount] = useState("");
+  console.log(datas);
 
   useEffect(() => {
     axios
@@ -47,6 +49,7 @@ const Detail = (filteringItemsResponseList) => {
   }, []);
 
   const onClickamount = () => {
+    const token = localStorage.getItem("access_token");
     axios({
       method: "post",
       url: "http://3.34.237.17:8080/bidding",
@@ -54,11 +57,13 @@ const Detail = (filteringItemsResponseList) => {
         amount: amount,
         auctionItemId: urlaxios.id,
       },
+      headers: {
+        Token: `${token}`,
+      },
     })
       .then((res) => {
-        window.location.replace(
-          `/Detail/${filteringItemsResponseList.auctionItemId}`
-        );
+        window.location.replace(`/`);
+        alert("입찰이 안료되었습니다!");
         // 작업 완료 되면 페이지 이동(새로고침)
       })
       .catch((error) => console.log(error.response));
@@ -136,7 +141,7 @@ const Detail = (filteringItemsResponseList) => {
                         </div>
                       </div>
                       <div className="content-wrap">
-                        <Slide />
+                        <DetailSlide />
                       </div>
                     </div>
                   </div>

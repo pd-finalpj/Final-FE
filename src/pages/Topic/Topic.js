@@ -11,7 +11,9 @@ const Topic = () => {
     const fetchData = async () => {
       setLoad(true);
       try {
-        const response = await axios.get("http://3.34.237.17:8080/notice-list");
+        const response = await axios.get(
+          "http:///3.34.237.17:8080/notice-list"
+        );
         console.log(response.data);
         setDatas(response.data.noticeDetailsResponseList);
       } catch (e) {
@@ -43,7 +45,9 @@ const Topic = () => {
                   key={noticeDetailsResponseList.noticeId}
                   noticeDetailsResponseList={noticeDetailsResponseList}
                 >
-                  <a href="/">
+                  <a
+                    href={`/TopicDetail/${noticeDetailsResponseList.noticeId}`}
+                  >
                     <p className="time"></p>
                     <h2>{noticeDetailsResponseList.title}</h2>
                   </a>

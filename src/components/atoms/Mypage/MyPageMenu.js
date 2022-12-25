@@ -1,8 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "../../../../node_modules/react-router-dom/dist/index";
 import "./MyPage.css";
 //중앙
 
 const MyPageMenu = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate(`/`);
+    window.localStorage.removeItem("access_token");
+  };
+
   return (
     <div class="content-body_wrap">
       <section>
@@ -49,15 +58,15 @@ const MyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/logout/">
-                <div class="my-menu-list_label">
-                  <img
-                    src="https://plab-football.s3.amazonaws.com/static/img/ic_logout_color.svg"
-                    alt="로그아웃"
-                  ></img>
-                  <p>로그아웃</p>
-                </div>
-              </a>
+              <div class="my-menu-list_label">
+                <img
+                  src="https://plab-football.s3.amazonaws.com/static/img/ic_logout_color.svg"
+                  alt="로그아웃"
+                ></img>
+                <Link to="/">
+                  <button onClick={logout}>로그아웃</button>
+                </Link>
+              </div>
             </li>
           </ul>
         </div>
@@ -69,7 +78,7 @@ const MyPageMenu = () => {
           <div>
             <ul class="my-menu_list">
               <li>
-                <a href="/mypage/myplab/">
+                <a href="/topic">
                   <div class="my-menu-list_label">
                     <img
                       src="https://plab-football.s3.amazonaws.com/static/img/ic_notice_color.svg"

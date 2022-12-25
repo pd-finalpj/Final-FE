@@ -11,8 +11,13 @@ const Containner = styled.ul`
 `;
 
 const Actionlist = () => {
-  const [datas, setDatas] = useState([]);
+  const [item, setItem] = useState([]);
   const [load, setLoad] = useState(false);
+  const [search, setSearch] = useState("");
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoad(true);
@@ -21,7 +26,7 @@ const Actionlist = () => {
           "http:///3.34.237.17:8080/auction-list/"
         );
         console.log(response.data);
-        setDatas(response.data.filteringItemsResponseList);
+        setItem(response.data.filteringItemsResponseList);
       } catch (e) {
         console.log(e);
       }
@@ -38,20 +43,40 @@ const Actionlist = () => {
   // }
 
   return (
-    <Containner>
-      {load ? (
-        <div>기다림</div>
-      ) : (
-        datas.map((filteringItemsResponseList) => (
-          <Link to={`/Detail/${filteringItemsResponseList.auctionItemId}`}>
-            <ActionItem
-              key={filteringItemsResponseList.auctionItemId}
-              filteringItemsResponseList={filteringItemsResponseList}
-            ></ActionItem>
-          </Link>
-        ))
-      )}
-    </Containner>
+    <div>
+      <div class="show-search">
+        <div class="search">
+          <img
+            id="MagnifyingGlass"
+            src="https://ifh.cc/g/gzZwc4.png"
+            border="0"
+            alt="돋보기아이콘"
+            height="20"
+          ></img>
+          <input
+            class="searchbarInput"
+            type="search"
+            placeholder="지역이름으로 찾기"
+            value={search}
+            onChange={onChange}
+          ></input>
+        </div>
+      </div>
+      <Containner>
+        {load ? (
+          <div>기다림</div>
+        ) : (
+          item.map((filteringItemsResponseList) => (
+            <Link to={`/Detail/${filteringItemsResponseList.auctionItemId}`}>
+              <ActionItem
+                key={filteringItemsResponseList.auctionItemId}
+                filteringItemsResponseList={filteringItemsResponseList}
+              ></ActionItem>
+            </Link>
+          ))
+        )}
+      </Containner>
+    </div>
   );
 };
 export default Actionlist;

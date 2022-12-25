@@ -39,11 +39,7 @@ const Login = () => {
           <h2>집을 마련하고싶을 땐?</h2>
           <h2 className="hlt">땅땅땅!</h2>
         </div>
-        <input
-          type="hidden"
-          name="csrfmiddlewaretoken"
-          value="XdFyRmqh5CYDLzi9T0E1jCZvMw0xSnmHRnxlVdIXvZBHT1L0xW1xhLhAF9gitVcQ"
-        />
+        <input type="hidden" name="csrfmiddlewaretoken"></input>
         <fieldset>
           <div classNameName="inputWrap">
             <input

@@ -30,23 +30,21 @@ function App() {
     <div style={maincontent}>
       <Header></Header>
       <RecoilRoot>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Main />} path="/" />
-            <Route element={<Login />} path="/login" />
-            <Route element={<Join />} path="/join"></Route>
-            <Route element={<Topic />} path="/Topic"></Route>
-            <Route element={<TopicDetail />} path="/TopicDetail"></Route>
-            <Route element={<Detail />} path="/Detail/:id"></Route>
-            <Route element={<Mypage />} path="/Mypage"></Route>
-            <Route element={<Manager />} path="/Manager"></Route>
-            <Route element={<Register />} path="/Register"></Route>
-            <Route element={<Bookmark />} path="/Bookmark"></Route>
-            <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
-            <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
-            <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route element={<Main />} path="/" />
+          <Route element={<Login />} path="/login" />
+          <Route element={<Join />} path="/join"></Route>
+          <Route element={<Topic />} path="/Topic"></Route>
+          <Route element={<TopicDetail />} path="/TopicDetail/:id"></Route>
+          <Route element={<Detail />} path="/Detail/:id"></Route>
+          <Route element={<Mypage />} path="/Mypage/:userId"></Route>
+          <Route element={<Manager />} path="/Manager"></Route>
+          <Route element={<Register />} path="/Register"></Route>
+          <Route element={<Bookmark />} path="/Bookmark"></Route>
+          <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
+          <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
+          <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
+        </Routes>
       </RecoilRoot>
       <Footer></Footer>
     </div>

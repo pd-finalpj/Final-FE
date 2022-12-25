@@ -1,7 +1,4 @@
-const getUserInfo = selector({
-    key: 'Auctionlist',
-    get: async ({ get }) => {
-      const response = await axios.get('https://some-url.com');
-      return response.data;
-    },
-  });
+const search = atom({
+  key: "textState", // unique ID (with respect to other atoms/selectors)
+  default: "", // default value (aka initial value)
+});

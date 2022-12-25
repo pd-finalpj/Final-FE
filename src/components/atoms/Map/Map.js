@@ -1,7 +1,9 @@
-/*global kakao*/
 import React, { useEffect } from "react";
 
-const Map = () => {
+const { kakao } = window;
+
+const Map = ({ searchPlace }, adress) => {
+  console.log(adress.location);
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
@@ -18,7 +20,7 @@ const Map = () => {
     var ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
-    ps.keywordSearch("이태원 맛집", placesSearchCB);
+    ps.keywordSearch(`${adress.location}`, placesSearchCB);
 
     // 키워드 검색 완료 시 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
@@ -56,12 +58,16 @@ const Map = () => {
         infowindow.open(map, marker);
       });
     }
-  }, []);
+  }, [searchPlace]);
 
   return (
-    <div>
-      <div id="map" style={{ width: "500px", height: "400px" }}></div>
-    </div>
+    <div
+      id="map"
+      style={{
+        width: "500px",
+        height: "500px",
+      }}
+    ></div>
   );
 };
 
