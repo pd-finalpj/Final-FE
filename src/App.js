@@ -17,6 +17,7 @@ import Bookmark from "./pages/Bookmark";
 import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
 import AuctionResult from "./pages/AuctionResult";
+import ManagerLogin from "./pages/ManagerLogin";
 
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
@@ -44,6 +45,10 @@ function App() {
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
           <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
+          <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
+          <Route element={<Bookmark />} path="/Bookmark"></Route>
+          <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
+          <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>
         </Routes>
       </RecoilRoot>
       <Footer></Footer>
