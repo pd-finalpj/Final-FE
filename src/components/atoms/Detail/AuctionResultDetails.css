@@ -264,7 +264,10 @@ h3 {
 
 .content-body_wrap {
     background-color: transparent;
+<<<<<<< HEAD
     margin-top: 5vh;
+=======
+>>>>>>> dc55d0e ( #13 [User]경매 내역)
     margin-left: 2.5vh;
     margin-right: 2.5vh;
 }
@@ -353,6 +356,10 @@ h3 {
     .content-body-result-list-btn-end {
         position: relative;
         width: 15%;
+<<<<<<< HEAD
+=======
+        border-radius: 10px;
+>>>>>>> dc55d0e ( #13 [User]경매 내역)
         font-size: 80%;
     }
 

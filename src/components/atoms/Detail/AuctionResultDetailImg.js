@@ -1,9 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import './AuctionResultDetails.css'
 
 const AuctionResultDetailImg = () => { // 이미지 파람으로 가져오기
-
-    const imageFile = useState();
 
     var index = 0;
     window.onload = function() {

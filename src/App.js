@@ -18,6 +18,10 @@ import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
 import AuctionResult from "./pages/AuctionResult";
 import ManagerLogin from "./pages/ManagerLogin";
+<<<<<<< HEAD
+=======
+import AuctionResult from "./pages/AuctionResult";
+>>>>>>> dc55d0e ( #13 [User]경매 내역)
 
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
@@ -31,6 +35,7 @@ function App() {
     <div style={maincontent}>
       <Header></Header>
       <RecoilRoot>
+<<<<<<< HEAD
         <Routes>
           <Route element={<Main />} path="/" />
           <Route element={<Login />} path="/login" />
@@ -50,6 +55,26 @@ function App() {
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>
         </Routes>
+=======
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Main />} path="/" />
+            <Route element={<Login />} path="/login" />
+            <Route element={<Join />} path="/join"></Route>
+            <Route element={<Topic />} path="/Topic"></Route>
+            <Route element={<TopicDetail />} path="/TopicDetail"></Route>
+            <Route element={<Detail />} path="/Detail/:id"></Route>
+            <Route element={<Mypage />} path="/Mypage"></Route>
+            <Route element={<Manager />} path="/Manager"></Route>
+            <Route element={<Register />} path="/Register"></Route>
+            <Route element={<Bookmark />} path="/Bookmark"></Route>
+            <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
+            <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
+            <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>
+            <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
+          </Routes>
+        </BrowserRouter>
+>>>>>>> dc55d0e ( #13 [User]경매 내역)
       </RecoilRoot>
       <Footer></Footer>
     </div>
