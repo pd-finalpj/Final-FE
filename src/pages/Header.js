@@ -20,6 +20,7 @@ const Header = () => {
       : `/login`;
     nav(url);
   };
+  console.log(datas);
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     axios

@@ -4,9 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import "./Day.css";
 
-const Day = () => {
-  const [isClick, setClicked] = useState();
-
+const Day = ({ isClick, setClicked }) => {
   const onclickhandler = (date) => {
     setClicked(date);
   };

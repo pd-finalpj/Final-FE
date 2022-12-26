@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Navigate } from "../../../../node_modules/react-router-dom/dist/index";
 import "../Mypage/MyPage.css";
 //중앙
 
 const ManagerMyPageMenu = () => {
+  const logout = () => {
+    Navigate(`/`);
+    window.localStorage.removeItem("access_token");
+  };
   return (
     <div class="content-body_wrap">
       <section>
@@ -46,7 +52,7 @@ const ManagerMyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/logout/">
+              <a href="/manaerlogin">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_logout_color.svg"
@@ -65,17 +71,19 @@ const ManagerMyPageMenu = () => {
           <h5>고객지원</h5>
           <div>
             <ul class="my-menu_list">
-              <li>
-                <a href="/mypage/myplab/">
-                  <div class="my-menu-list_label">
-                    <img
-                      src="https://plab-football.s3.amazonaws.com/static/img/ic_notice_color.svg"
-                      alt="공지사항"
-                    ></img>
-                    <p>공지사항</p>
-                  </div>
-                </a>
-              </li>
+              <Link to="/TopicRegister">
+                <li>
+                  <a href="/mypage/myplab/">
+                    <div class="my-menu-list_label" onClick={logout}>
+                      <img
+                        src="https://plab-football.s3.amazonaws.com/static/img/ic_notice_color.svg"
+                        alt="공지사항"
+                      ></img>
+                      <p>공지사항등록</p>
+                    </div>
+                  </a>
+                </li>
+              </Link>
               <li>
                 <a href="/mypage/myplab/">
                   <div class="my-menu-list_label">

@@ -15,7 +15,6 @@ function Signup() {
   const [age, setAge] = useState("");
   const [department, setDepartment] = useState("");
 
-
   const [isuserId, setIsId] = useState(false);
   const [isName, setIsName] = useState(false);
   const [isNick, setIsNick] = useState(false);
@@ -137,7 +136,6 @@ function Signup() {
 
   const onchangedepartment = useCallback((e) => {
     setDepartment(e.target.value);
-    
   }, []);
 
   const onChangeAge = useCallback((e) => {
@@ -156,7 +154,7 @@ function Signup() {
     }
   }, []);
 
-  const onClicksignup= () =>{
+  const onClicksignup = () => {
     console.log("click signup");
     console.log("ID : ", userId);
     console.log("PW : ", password);
@@ -363,12 +361,8 @@ function Signup() {
               <button className="signup-button" onClick={onClicksignup}>
                 Sign up
               </button>
-              <Link to="/Login">
-                <button
-                  className="signup-button"
-                  type="button"
-                  href=".pages/Login"
-                >
+              <Link to="/ManagerLogin">
+                <button className="signup-button" type="button">
                   cancel
                 </button>
               </Link>

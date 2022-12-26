@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../style/css/Image.css";
 const AddImage = () => {
   const [showImages, setShowImages] = useState([]);
 

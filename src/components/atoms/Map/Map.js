@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 
 const { kakao } = window;
 
-const Map = ({ searchPlace }, adress) => {
-  console.log(adress.location);
+const Map = ({ searchPlace, datas }) => {
+  console.log(datas.location + datas.lotNumber);
+
   useEffect(() => {
     var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
@@ -20,8 +21,7 @@ const Map = ({ searchPlace }, adress) => {
     var ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
-    ps.keywordSearch(`${adress.location}`, placesSearchCB);
-
+    ps.keywordSearch(`${datas.location + datas.lotNumber}`, placesSearchCB);
     // 키워드 검색 완료 시 호출되는 콜백함수 입니다
     function placesSearchCB(data, status, pagination) {
       if (status === kakao.maps.services.Status.OK) {
@@ -58,7 +58,7 @@ const Map = ({ searchPlace }, adress) => {
         infowindow.open(map, marker);
       });
     }
-  }, [searchPlace]);
+  }, [datas]);
 
   return (
     <div

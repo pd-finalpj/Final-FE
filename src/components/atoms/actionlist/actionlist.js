@@ -10,10 +10,12 @@ const Containner = styled.ul`
   margin: "0 auto";
 `;
 
-const Actionlist = () => {
+const Actionlist = ({ isClick }) => {
   const [item, setItem] = useState([]);
   const [load, setLoad] = useState(false);
   const [search, setSearch] = useState("");
+  const [found, setFound] = useState([]);
+
   const onChange = (e) => {
     setSearch(e.target.value);
   };
@@ -27,6 +29,7 @@ const Actionlist = () => {
         );
         console.log(response.data);
         setItem(response.data.filteringItemsResponseList);
+        setFound(response.data.filteringItemsResponseList);
       } catch (e) {
         console.log(e);
       }
@@ -34,14 +37,26 @@ const Actionlist = () => {
     };
     fetchData();
   }, []);
-
-  // if (load) {
-  //   return <div>기다림</div>;
-  // }
-  // if (!datas) {
-  //   return null;
-  // }
-
+  useEffect(() => {
+    if (isClick && search) {
+      const dateFilter = keyFiltering(dateFiltering(item, isClick), search);
+      setFound(dateFilter);
+    } else if (isClick) {
+      const dateFilter = dateFiltering(item, isClick);
+      setFound(dateFilter);
+    } else if (search) {
+      const dateFilter = keyFiltering(item, search);
+      setFound(dateFilter);
+    } else {
+      setFound(item);
+    }
+  }, [isClick, item, search]);
+  const dateFiltering = (found, isClick) => {
+    return found.filter((el) => el.auctionEndDate.includes(isClick));
+  };
+  const keyFiltering = (found, key) => {
+    return found.filter((el) => el.auctionItemName.includes(key));
+  };
   return (
     <div>
       <div class="show-search">
@@ -66,7 +81,7 @@ const Actionlist = () => {
         {load ? (
           <div>기다림</div>
         ) : (
-          item.map((filteringItemsResponseList) => (
+          found.map((filteringItemsResponseList) => (
             <Link to={`/Detail/${filteringItemsResponseList.auctionItemId}`}>
               <ActionItem
                 key={filteringItemsResponseList.auctionItemId}

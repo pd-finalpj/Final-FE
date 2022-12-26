@@ -12,7 +12,6 @@ const Detail = (filteringItemsResponseList) => {
   const [load, setLoad] = useState(false);
   const [faild, setFaild] = useState([]);
   const [amount, setAmount] = useState("");
-  console.log(datas);
 
   useEffect(() => {
     axios
@@ -141,7 +140,7 @@ const Detail = (filteringItemsResponseList) => {
                         </div>
                       </div>
                       <div className="content-wrap">
-                        <DetailSlide />
+                        <DetailSlide datas={datas} />
                       </div>
                     </div>
                   </div>
@@ -293,7 +292,7 @@ const Detail = (filteringItemsResponseList) => {
                           <div>
                             <h3>지도</h3>
                             <div>
-                              <Map />
+                              <Map datas={datas} />
                             </div>
                           </div>
                         </div>

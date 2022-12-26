@@ -1,8 +1,39 @@
 // 왼쪽거
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "../../../../node_modules/axios/index";
+import { Navigate } from "../../../../node_modules/react-router-dom/dist/index";
 import "../Mypage/MyPage.css";
 
 const ManagerMyPageInfo = () => {
+  const [datas, setDatas] = useState([]);
+  const token = localStorage.getItem("access_token");
+
+  useEffect(() => {
+    axios
+      .get(`http:///3.34.237.17:8080/manager/`, {
+        headers: {
+          Token: `${token}`,
+        },
+      })
+      .then(function (response) {
+        // 성공 핸들링
+        setDatas(response.data);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // 에러 핸들링
+        console.log(error);
+      })
+      .then(function () {
+        // 항상 실행되는 영역
+      });
+  }, []);
+
+  const logout = () => {
+    Navigate(`/ManagerLogin`);
+    window.localStorage.removeItem("access_token");
+  };
+
   return (
     <div class="content-body_left-wrap">
       <section>
@@ -15,7 +46,7 @@ const ManagerMyPageInfo = () => {
         >
           <div className="my-profile">
             <div style={{ display: "flex", alignitems: "center" }}>
-              <h1 className="my-profile_name">관리자 윤이도</h1>
+              <h1 className="my-profile_name">관리자 {datas.name}</h1>
             </div>
           </div>
         </div>

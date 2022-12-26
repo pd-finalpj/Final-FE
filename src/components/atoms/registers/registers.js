@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../style/css/register.css";
 import { AddImage } from "../AddImg/AddImage";
 import AddImg from "../AddImg/AddImage";
+import styled from "styled-components";
+
+const CreateListDiv = styled.div`
+  padding: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const registers = () => {
+  // const [countList, setCountList] = useState([0]);
+
+  // const onAddDetailDiv = () => {
+  //   let countArr = [...countList];
+  //   let counter = countArr.slice(-1)[0];
+  //   counter += 1;
+  //   countArr.push(counter); // index 사용 X
+  //   // countArr[counter] = counter	// index 사용 시 윗줄 대신 사용
+  //   setCountList(countArr);
+  // };
+
   return (
     <div className="content-back">
       <div class="content-wrap">
@@ -255,7 +276,11 @@ const registers = () => {
                           <div class="match-info__fee">
                             <div class="matchFee">
                               <div class="btnWrap">
-                                <button type="button" class="btn money">
+                                <button
+                                  type="button"
+                                  class="btn money"
+                                  // onClick={onAddDetailDiv}
+                                >
                                   <p className="money-btn">
                                     <h3>등록하기</h3>
                                   </p>

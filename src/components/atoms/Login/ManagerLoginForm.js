@@ -1,7 +1,7 @@
 import "../../style/css/Login.css";
 import "./Loginv2.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ManagerLogin = () => {
@@ -9,13 +9,14 @@ const ManagerLogin = () => {
   const [password, setPw] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("access_token");
+  let urlaxios = useParams();
 
   const onClickManagerLogin = () => {
     axios({
       method: "post",
       url: "http://3.34.237.17:8080/manager/login",
       headers: {
-        Token: `${token}`
+        Token: `${token}`,
       },
       data: {
         managerId: managerId,
@@ -27,7 +28,7 @@ const ManagerLogin = () => {
         //데이터에 access_token이 있다면
         localStorage.setItem("access_token", res.data.accessToken);
         alert("로그인 성공");
-        navigate("/");
+        navigate(`/Manager/${urlaxios.id}`);
         console.log(res.data.accessToken);
       })
       .catch((res) => {
@@ -40,7 +41,7 @@ const ManagerLogin = () => {
     <div className="main">
       <div className="inner">
         <div className="headMessage">
-          <h2>집을 마련하고싶을 땐?</h2>
+          <h2>관리자 로그인 페이지입니다ㄴ</h2>
           <h2 className="hlt">땅땅땅!</h2>
         </div>
         <input
@@ -77,7 +78,11 @@ const ManagerLogin = () => {
         </fieldset>
         <input type="checkbox" id="saveID" value="" name="#" />
         <div className="btn-wrap">
-          <button type="submit" onClick={onClickManagerLogin} className="login-btn">
+          <button
+            type="submit"
+            onClick={onClickManagerLogin}
+            className="login-btn"
+          >
             로그인
           </button>
         </div>
