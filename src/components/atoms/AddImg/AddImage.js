@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import axios from "../../../../node_modules/axios/index";
 import "../../style/css/Image.css";
-const AddImage = () => {
+const AddImage = (props) => {
+  const token = localStorage.getItem("access_token");
   const [showImages, setShowImages] = useState([]);
+  const [imageFileUrl, setImageFileUrl] = useState([]);
 
   // 이미지 상대경로 저장
   const handleAddImages = (e) => {
+    const formData = new FormData();
+
     const imageLists = e.target.files;
     let imageUrlLists = [...showImages];
 
@@ -17,7 +22,26 @@ const AddImage = () => {
       imageUrlLists = imageUrlLists.slice(0, 10);
     }
 
+    formData.append('file', e.target.files[0]);
     setShowImages(imageUrlLists);
+    
+    axios({
+      method: "post",
+      url: "http://3.34.237.17:8080/image-file",
+      headers: {
+        Token: `${token}`,
+        'Content-Type': 'multipart/form-data'
+      },
+      data: formData
+    })
+    .then((res) => {
+      console.log(res)
+      console.log(res.data.imageFileUrlList);
+      setImageFileUrl(res.data.imageFileUrlList);
+      console.log(imageFileUrl);
+    });
+    
+    props.getImageFile(imageFileUrl);
   };
 
   // X버튼 클릭 시 이미지 삭제

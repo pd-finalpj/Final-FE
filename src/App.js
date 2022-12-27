@@ -42,6 +42,10 @@ function App() {
           <Route element={<Manager />} path="/Manager/:id"></Route>
           <Route element={<Register />} path="/Register"></Route>
           <Route element={<Bookmark />} path="/Bookmark/:id"></Route>
+          <Route
+            element={<Register />}
+            path="/managerpage/change/general"
+          ></Route>
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
           <Route element={<AuctionResult />} path="/mypage/mylab/:id"></Route>
