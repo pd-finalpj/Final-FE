@@ -11,7 +11,7 @@ const Detail = (filteringItemsResponseList, Header) => {
   const [load, setLoad] = useState(false);
   const [faild, setFaild] = useState([]);
   const [amount, setAmount] = useState("");
-  const [auctionItemId, setauctionItemId] = useState(`${urlaxios.id}`);
+  const [auctionId, setauctionId] = useState(`${urlaxios.id}`);
 
   console.log(urlaxios.uderid);
 
@@ -22,9 +22,7 @@ const Detail = (filteringItemsResponseList, Header) => {
         // 성공 핸들링
         console.log(response);
         setDatas(response.data);
-        setauctionItemId(
-          response.data.aftBiddingDetailsResponseList.auctionItemId
-        );
+        setauctionId(response.data.aftBiddingDetailsResponseList.auctionItemId);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -59,13 +57,14 @@ const Detail = (filteringItemsResponseList, Header) => {
       url: "http://3.34.237.17:8080/bidding",
       data: {
         amount: amount,
-        auctionItemId: auctionItemId,
+        auctionItemId: auctionId,
       },
       headers: {
         Token: `${token}`,
       },
     })
       .then((res) => {
+        console.log(res);
         window.location.replace(`/`);
         alert("입찰이 안료되었습니다!");
         // 작업 완료 되면 페이지 이동(새로고침)
@@ -78,7 +77,7 @@ const Detail = (filteringItemsResponseList, Header) => {
       method: "post",
       url: "http://3.34.237.17:8080/bookmark",
       data: {
-        auctionItemId: auctionItemId,
+        auctionId: auctionId,
       },
       headers: {
         Token: `${token}`,

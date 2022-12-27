@@ -30,6 +30,29 @@ const Bookmark = () => {
     // setdeadbtn(0)
     state = 0;
   }
+  const delbookmark = () => {
+    const token = localStorage.getItem("access_token");
+    axios({
+      method: "Delete",
+      url: `http://3.34.237.17:8080/bookmark/${bookmark.auctionId}`,
+      data: {
+        auctionItemId: item.auctionId,
+      },
+      headers: {
+        Token: `${token}`,
+      },
+    })
+      .then((res) => {
+        alert("삭제가 완료되었습니다");
+        // 작업 완료 되면 페이지 이동(새로고침)
+        window.location.replace(`/`);
+      })
+      .catch((error) => {
+        console.log(error.response);
+        alert("삭제가 어렵습니다!");
+        window.location.replace(`/`);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -42,6 +65,7 @@ const Bookmark = () => {
         setLoad(false);
         // 성공 핸들링
         setItem(response.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -52,8 +76,6 @@ const Bookmark = () => {
         // 항상 실행되는 영역
       });
   }, []);
-
-  console.log(bookmark);
   return (
     <div class="fadein">
       <div className="content-back">
@@ -78,77 +100,93 @@ const Bookmark = () => {
                                 ) : (
                                   bookmark &&
                                   bookmark.map((bookmark) => (
-                                    <Link
-                                      to={`/Detail/${bookmark.auctionItemId}`}
-                                    >
-                                      <li
-                                        class="list--match-schedule--item"
+                                    <div style={{ display: "flex" }}>
+                                      <button
+                                        class="match-status isHurry"
                                         style={{
-                                          width: "80%",
-                                          margin: "0 auto",
+                                          width: "10%",
+                                          display: "block",
+                                          height: "40px",
                                         }}
+                                        onClick={delbookmark}
                                       >
-                                        <div
-                                          class="list--match-schedule--item a"
-                                          key={bookmark.auctionItemId}
-                                          bookmark={bookmark}
+                                        삭제
+                                      </button>
+                                      <Link
+                                        to={`/Detail/${bookmark.auctionItemId}`}
+                                      >
+                                        <li
+                                          class="list--match-schedule--item"
+                                          style={{
+                                            width: "80%",
+                                            margin: "0 auto",
+                                          }}
                                         >
-                                          <div clwass="list--match-schedule__time">
-                                            <p>
-                                              {bookmark.auctionEndDate.substring(
-                                                11,
-                                                16
-                                              )}
-                                            </p>
-                                          </div>
-                                          <div class="list--match-schedule__info">
-                                            <p class="match--label early-bird">
-                                              담당부서:
-                                            </p>
-                                            <div class="match-list__title">
-                                              <h3>
-                                                {bookmark.auctionItemName}
-                                              </h3>
+                                          <div
+                                            class="list--match-schedule--item a"
+                                            key={bookmark.auctionItemId}
+                                            bookmark={bookmark}
+                                          >
+                                            <div clwass="list--match-schedule__time">
+                                              <p>
+                                                {bookmark.auctionEndDate.substring(
+                                                  11,
+                                                  16
+                                                )}
+                                              </p>
                                             </div>
-                                            <div class="label--match-option">
-                                              <span class="match--option isMix">
-                                                {bookmark.location}
-                                              </span>
-                                              <span>
-                                                주거형태:{bookmark.itemCategory}
-                                              </span>
-                                              <span>
-                                                평수:{bookmark.areaSize}
-                                              </span>
+
+                                            <div class="list--match-schedule__info">
+                                              <p class="match--label early-bird">
+                                                담당부서:
+                                              </p>
+                                              <div class="match-list__title">
+                                                <h3>
+                                                  {bookmark.auctionItemName}
+                                                </h3>
+                                              </div>
+                                              <div class="label--match-option">
+                                                <span class="match--option isMix">
+                                                  {bookmark.location}
+                                                </span>
+                                                <span>
+                                                  주거형태:
+                                                  {bookmark.itemCategory}
+                                                </span>
+                                                <span>
+                                                  평수:{bookmark.areaSize}
+                                                </span>
+                                              </div>
+                                            </div>
+
+                                            <div class="list--match-schedule__status">
+                                              <div>
+                                                {state === 1 ? (
+                                                  <div class="match-status isOpen">
+                                                    <p>신청가능</p>
+                                                  </div>
+                                                ) : state === 2 ? (
+                                                  <div class="match-status isHurry">
+                                                    <p>마감임박!</p>
+                                                  </div>
+                                                ) : state === 0 ? (
+                                                  <div class="match-status isFull">
+                                                    <p>마감</p>
+                                                  </div>
+                                                ) : (
+                                                  <div
+                                                    class="match-status isFull"
+                                                    style={{ height: "15px" }}
+                                                  >
+                                                    <p>마감</p>
+                                                  </div>
+                                                )}
+                                              </div>
                                             </div>
                                           </div>
-                                          <div class="list--match-schedule__status">
-                                            <div>
-                                              {state === 1 ? (
-                                                <div class="match-status isOpen">
-                                                  <p>신청가능</p>
-                                                </div>
-                                              ) : state === 2 ? (
-                                                <div class="match-status isHurry">
-                                                  <p>마감임박!</p>
-                                                </div>
-                                              ) : state === 0 ? (
-                                                <div class="match-status isFull">
-                                                  <p>마감</p>
-                                                </div>
-                                              ) : (
-                                                <div
-                                                  class="match-status isFull"
-                                                  style={{ height: "15px" }}
-                                                >
-                                                  <p>마감</p>
-                                                </div>
-                                              )}
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </li>
-                                    </Link>
+                                        </li>
+                                      </Link>
+                                    </div>
                                   ))
                                 )}
                               </Containner>
