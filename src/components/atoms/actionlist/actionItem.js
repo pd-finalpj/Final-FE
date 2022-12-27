@@ -34,7 +34,7 @@ const ActionItem = ({ filteringItemsResponseList }) => {
     >
       <div class="list--match-schedule--item a">
         <div clwass="list--match-schedule__time">
-          <p>{auctionEndDate.substring(11, 16)}</p>
+          {/* <p>{auctionEndDate.substring(11, 16)}</p> */}
         </div>
         <div class="list--match-schedule__info">
           <p class="match--label early-bird">담당:{managerName}</p>

@@ -10,7 +10,6 @@ const AuctionResultsDetails = () => {
 
   const [item, setItem] = useState([]);
   const [ing, setIng] = useState([]);
-  const navigate = useNavigate();
   const token = localStorage.getItem("access_token");
 
   useEffect(() => {
