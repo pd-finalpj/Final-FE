@@ -1,27 +1,55 @@
 import React from "react";
 import { useEffect } from "react";
+import { useCallback } from "react";
 import { useState } from "react";
 import axios from "../../../../node_modules/axios/index";
 import { useNavigate } from "../../../../node_modules/react-router-dom/dist/index";
 import './AuctionResultDetails.css';
+import { useInView } from "react-intersection-observer";
 
 const AuctionManagerRegistList = () => {
     const token = localStorage.getItem("access_token");
+
     const [item, setItem] = useState([]);
     const [page, setPage] = useState(1);
+    const [load, setLoad] = useState(false);    
+    // const [found, setFound] = useState([]);
 
-    useEffect(() => {
-        axios
-        .get("http://3.34.237.17:8080/auction-list/by-manager", {
+    const [ref, inView] = useInView();
+
+    const getItems = useCallback(async () => {
+        setLoad(true);
+        
+        await axios
+        .get(`http://3.34.237.17:8080/auction-list/by-manager/?pageNum=${page}`, {
             headers: {
                 Token: `${token}`
             }
         })
         .then((res) => {
             console.log(res.date.filteringItemsResponseList);
-            setItem(res.data);
-        })
-    });
+            setItem((prevState) => [
+                ...prevState,
+                ...res.data.filteringItemsResponseList
+            ]);
+            // setFound((prevState) => [
+            //     ...prevState,
+            //     ...res.data.filteringItemsResponseList
+            // ]);
+        });
+        setLoad(false);
+    }, [page]);
+
+    useEffect(() => {
+        getItems();
+      }, [getItems]);
+
+    useEffect(() => {
+        // 
+        if (inView && !load) {
+            setPage((page) => page + 1);
+        }
+    }, [inView, load]);
 
     const itemSet = 
         item.filteringItemsResponseList &&
@@ -33,10 +61,7 @@ const AuctionManagerRegistList = () => {
                 <span class="content-body-result-list-state">
                     {index.auctionItemName}
                 </span>
-                <span class="content-body-result-list">
-
-                </span>
-                <button class="content-body-result-list-btn"></button>
+                <button class="content-body-result-list-btn">상세보기</button>
             </li>
         });
 
