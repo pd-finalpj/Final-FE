@@ -18,7 +18,15 @@ const ManagerMyPageMenu = () => {
         <div class="my-menu">
           <ul class="my-menu_list">
             <li>
-              <a href="/mypage/myplab/">
+              <a href="/managerpage/change/general/">
+                <div class="my-menu-list_label">
+                  <img src="https://ifh.cc/g/xj1wJa.png" alt="설정"></img>
+                  <p>물건 등록하기</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/managerpage/myplab/">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_myplab_color.svg"
@@ -29,7 +37,7 @@ const ManagerMyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/mypage/change/profile/">
+              <a href="/managerpage/change/profile/">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_profile.svg"
@@ -40,14 +48,6 @@ const ManagerMyPageMenu = () => {
                   <div>
                     <p>프로필 수정</p>
                   </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="/mypage/change/general/">
-                <div class="my-menu-list_label">
-                  <img src="https://ifh.cc/g/xj1wJa.png" alt="설정"></img>
-                  <p>등록물건 상세보기</p>
                 </div>
               </a>
             </li>
@@ -85,7 +85,7 @@ const ManagerMyPageMenu = () => {
                 </li>
               </Link>
               <li>
-                <a href="/mypage/myplab/">
+                <a href="/managerpage/myplab/">
                   <div class="my-menu-list_label">
                     <img
                       src="https://plab-football.s3.amazonaws.com/static/img/ic_faq_color.svg"

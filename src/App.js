@@ -40,7 +40,7 @@ function App() {
           <Route element={<Detail />} path="/Detail/:id"></Route>
           <Route element={<Mypage />} path="/Mypage/:userId"></Route>
           <Route element={<Manager />} path="/Manager/:id"></Route>
-          <Route element={<Register />} path="/Register"></Route>
+          <Route element={<Register />} path="/managerpage/change/general"></Route>
           <Route element={<Bookmark />} path="/Bookmark"></Route>
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
