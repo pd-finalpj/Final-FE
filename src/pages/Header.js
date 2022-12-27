@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../node_modules/axios/index";
+import Cookies from "../../node_modules/react-cookie/cjs/Cookies";
 import { useNavigate } from "../../node_modules/react-router-dom/dist/index";
 import "../components/style/css/Header.css";
 
@@ -20,7 +21,7 @@ const Header = () => {
       : `/login`;
     nav(url);
   };
-  console.log(datas);
+  // console.log(datas);
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     axios

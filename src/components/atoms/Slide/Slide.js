@@ -351,24 +351,6 @@ function Slider() {
             }}
             src={WantedImg[index]}
           />
-          {!isSlide && windowWidth > 1200 ? (
-            <ImgDes>
-              <Title>{wantedTitle[index]}</Title>
-              <Des>{wantedDes[index]}</Des>
-              <LinkSpan>
-                바로가기<i class="fas fa-chevron-right"></i>
-              </LinkSpan>
-            </ImgDes>
-          ) : null}
-          {!isSlide && windowWidth <= 1200 ? (
-            <MiniWrapper>
-              <MiniTitle>{wantedTitle[index]}</MiniTitle>
-              <MiniDes>{wantedDes[index]}</MiniDes>
-              <LinkSpan>
-                바로가기<i class="fas fa-chevron-right"></i>
-              </LinkSpan>
-            </MiniWrapper>
-          ) : null}
         </ImgWrapper>
         <Container>
           <PrivewImg

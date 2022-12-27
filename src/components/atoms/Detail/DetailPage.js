@@ -4,14 +4,16 @@ import DetailSlide from "../Slide/DetailSlide";
 import Map from "../Map/Map";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
-import { useNavigate } from "../../../../node_modules/react-router-dom/dist/index";
 
-const Detail = (filteringItemsResponseList) => {
+const Detail = (filteringItemsResponseList, Header) => {
   let urlaxios = useParams();
   const [datas, setDatas] = useState([]);
   const [load, setLoad] = useState(false);
   const [faild, setFaild] = useState([]);
   const [amount, setAmount] = useState("");
+  const [auctionItemId, setauctionItemId] = useState(`${urlaxios.id}`);
+
+  console.log(urlaxios.uderid);
 
   useEffect(() => {
     axios
@@ -20,6 +22,9 @@ const Detail = (filteringItemsResponseList) => {
         // 성공 핸들링
         console.log(response);
         setDatas(response.data);
+        setauctionItemId(
+          response.data.aftBiddingDetailsResponseList.auctionItemId
+        );
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -54,7 +59,7 @@ const Detail = (filteringItemsResponseList) => {
       url: "http://3.34.237.17:8080/bidding",
       data: {
         amount: amount,
-        auctionItemId: urlaxios.id,
+        auctionItemId: auctionItemId,
       },
       headers: {
         Token: `${token}`,
@@ -67,7 +72,28 @@ const Detail = (filteringItemsResponseList) => {
       })
       .catch((error) => console.log(error.response));
   };
-
+  const onClickbookmark = () => {
+    const token = localStorage.getItem("access_token");
+    axios({
+      method: "post",
+      url: "http://3.34.237.17:8080/bookmark",
+      data: {
+        auctionItemId: auctionItemId,
+      },
+      headers: {
+        Token: `${token}`,
+      },
+    })
+      .then((res) => {
+        window.location.replace(`/`);
+        alert("북마크등록이 완료됬습니다!");
+        // 작업 완료 되면 페이지 이동(새로고침)
+      })
+      .catch((error) => {
+        console.log(error.response);
+        alert("이미 등록되어있습니다!");
+      });
+  };
   const onChangeamount = useCallback((e) => {
     setAmount(e.target.value);
   }, []);
@@ -96,7 +122,9 @@ const Detail = (filteringItemsResponseList) => {
                                 data-value="503_20210000571_001"
                                 data-interest_id=""
                               >
-                                <span class="txt">찜하기</span>
+                                <span class="txt" onClick={onClickbookmark}>
+                                  찜하기
+                                </span>
                               </button>
                             </div>
                             <div class="btn-group-cell">
@@ -140,7 +168,7 @@ const Detail = (filteringItemsResponseList) => {
                         </div>
                       </div>
                       <div className="content-wrap">
-                        <DetailSlide datas={datas} />
+                        <DetailSlide datas={datas.imageFileUrlResponseList} />
                       </div>
                     </div>
                   </div>

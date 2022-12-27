@@ -2,12 +2,12 @@ import { useState } from "react";
 
 const ActionItem = ({ filteringItemsResponseList }) => {
   const {
-    auctionItemId,
     areaSize,
     auctionItemName,
     auctionEndDate,
     itemCategory,
     location,
+    managerName,
   } = filteringItemsResponseList;
   var state = useState(0);
   const Enddata = filteringItemsResponseList.auctionEndDate;
@@ -37,7 +37,7 @@ const ActionItem = ({ filteringItemsResponseList }) => {
           <p>{auctionEndDate.substring(11, 16)}</p>
         </div>
         <div class="list--match-schedule__info">
-          <p class="match--label early-bird">담당부서:</p>
+          <p class="match--label early-bird">담당:{managerName}</p>
           <div class="match-list__title">
             <h3>{auctionItemName}</h3>
           </div>

@@ -41,10 +41,10 @@ function App() {
           <Route element={<Mypage />} path="/Mypage/:userId"></Route>
           <Route element={<Manager />} path="/Manager/:id"></Route>
           <Route element={<Register />} path="/Register"></Route>
-          <Route element={<Bookmark />} path="/Bookmark"></Route>
+          <Route element={<Bookmark />} path="/Bookmark/:id"></Route>
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
-          <Route element={<AuctionResult />} path="/mypage/mylab"></Route>
+          <Route element={<AuctionResult />} path="/mypage/mylab/:id"></Route>
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>

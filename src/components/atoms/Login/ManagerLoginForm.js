@@ -41,7 +41,7 @@ const ManagerLogin = () => {
     <div className="main">
       <div className="inner">
         <div className="headMessage">
-          <h2>관리자 로그인 페이지입니다ㄴ</h2>
+          <h2>관리자 로그인 페이지입니다</h2>
           <h2 className="hlt">땅땅땅!</h2>
         </div>
         <input

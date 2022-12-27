@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "../../../../node_modules/axios/index";
 import { useNavigate } from "../../../../node_modules/react-router-dom/dist/index";
 import "./MyPage.css";
 //중앙
 
 const MyPageMenu = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("access_token");
+  const [datas, setDatas] = useState([]);
 
   const logout = () => {
     navigate(`/`);
     window.localStorage.removeItem("access_token");
   };
+  useEffect(() => {
+    axios
+      .get(`http:///3.34.237.17:8080/user/`, {
+        headers: {
+          Token: `${token}`,
+        },
+      })
+      .then(function (response) {
+        // 성공 핸들링
+        setDatas(response.data);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // 에러 핸들링
+        console.log(error);
+      })
+      .then(function () {
+        // 항상 실행되는 영역
+      });
+  }, []);
 
   return (
     <div class="content-body_wrap">
@@ -21,7 +44,7 @@ const MyPageMenu = () => {
         <div class="my-menu">
           <ul class="my-menu_list">
             <li>
-              <a href="/mypage/mylab/">
+              <Link to={`/mypage/mylab/id:${datas.userId}`}>
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_myplab_color.svg"
@@ -29,7 +52,7 @@ const MyPageMenu = () => {
                   ></img>
                   <p>경매내역</p>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/mypage/change/profile/">
@@ -47,7 +70,7 @@ const MyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/mypage/change/general/">
+              <Link to={`/Bookmark/${datas.userId}`}>
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_setting_color.svg"
@@ -55,7 +78,7 @@ const MyPageMenu = () => {
                   ></img>
                   <p>관심목록</p>
                 </div>
-              </a>
+              </Link>
             </li>
             <li>
               <div class="my-menu-list_label">

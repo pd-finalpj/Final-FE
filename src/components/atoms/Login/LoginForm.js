@@ -25,6 +25,7 @@ const Login = () => {
         alert("로그인 성공");
         navigate("/");
         console.log(res.data.accessToken);
+        document.cookie = `UserId=${userId}`;
       })
       .catch((res) => {
         // 로그인 실패 시

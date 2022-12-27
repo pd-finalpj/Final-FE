@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./TopicRegister.css";
 
 const TopicRegister = () => {
   const title = useState("");
@@ -31,14 +32,14 @@ const TopicRegister = () => {
             <div class="helpTitle">
               <ol>
                 <li>
-                  <a href="/cs/6/topics/">공지사항 등록</a>
+                  <h2 href="/cs/6/topics/">공지사항 등록</h2>
                 </li>
               </ol>
             </div>
           </div>
 
           <div class="articleBottom">
-            <p>공지사항 제목</p>
+            <h3>공지사항 제목</h3>
             <div class="helpSearch">
               <input
                 type="text"
@@ -48,7 +49,7 @@ const TopicRegister = () => {
               />
             </div>
           </div>
-          <p>공지사항 내용</p>
+          <h3>공지사항 내용</h3>
           <div class="helpSearch">
             <input
               type="text"
@@ -59,10 +60,11 @@ const TopicRegister = () => {
             />
           </div>
 
-          <div className="btn-section">
+          <div className="btnsection">
             <button className="createTopic-button" onClick={TopicCrate}>
               생성
             </button>
+
             <Link to="/topic">
               <button
                 className="createTopic-button"

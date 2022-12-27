@@ -37,6 +37,7 @@ const Actionlist = ({ isClick }) => {
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     if (isClick && search) {
       const dateFilter = keyFiltering(dateFiltering(item, isClick), search);

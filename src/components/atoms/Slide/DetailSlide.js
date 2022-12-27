@@ -134,18 +134,6 @@ const MiniDes = styled.span`
   color: rgba(0, 0, 0, 0.6);
 `;
 
-const WantedImg = [
-  "https://static.wanted.co.kr/images/banners/1489/312a0c29.jpg",
-  "https://static.wanted.co.kr/images/banners/1486/fba2df30.jpg",
-  "https://static.wanted.co.kr/images/banners/1468/3df61cbc.jpg",
-  "https://static.wanted.co.kr/images/banners/1490/0b775035.jpg",
-  "https://static.wanted.co.kr/images/banners/1484/b2853456.jpg",
-  "https://static.wanted.co.kr/images/banners/1460/619f3af7.jpg",
-  "https://static.wanted.co.kr/images/banners/1473/41f7b36e.jpg",
-  "https://static.wanted.co.kr/images/banners/1487/0d36f0b5.jpg",
-  "https://static.wanted.co.kr/images/banners/1488/baa54448.jpg",
-];
-
 const wantedTitle = [
   "정일이 바보",
   "조재현 바보",
@@ -170,7 +158,8 @@ const wantedDes = [
   "브랜드 가치를 더하는 디자인",
 ];
 
-function DetailSlider() {
+function DetailSlider({ datas }) {
+  // console.log(datas);
   //슬라이드
   const slideRef = useRef(null);
   const [index, setIndex] = useState(0); // 인덱스를 만들어줍니다.
@@ -210,10 +199,7 @@ function DetailSlider() {
       setIsSlide(false);
     }, 500);
   };
-  const morePrevImg = index === 1 ? 8 : index === 0 ? 7 : index - 2;
-  const PrevImg = index === 0 ? 8 : index - 1;
-  const NextImg = index === 8 ? 0 : index + 1;
-  const moreNextImg = index === 8 ? 1 : index === 7 ? 0 : index + 2;
+
   //console.log(slideRef.current);
   //console.log(index);
 
@@ -272,50 +258,39 @@ function DetailSlider() {
     };
   }, [index, isClick]);
   // console.log(`브라우저 사이즈 : ${windowWidth}`);
+  const imgset = datas && datas.map((url, index) => datas[index].url);
   return (
     <Wrapper>
-      <Row
-        key={index}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
-        onMouseMove={onMouseMove}
-        ref={slideRef}
-        style={{
-          transform: `translateX(${x}vw)`,
-        }}
-      >
-        <ImgWrapper>
-          <Img
+      {datas &&
+        datas.map((url, index) => (
+          <Row
+            key={index}
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseLeave}
+            onMouseMove={onMouseMove}
+            ref={slideRef}
             style={{
-              opacity: 1,
-              width: windowWidth > 1200 ? null : `80vw`,
-              height:
-                windowWidth > 1200
-                  ? null
-                  : windowWidth < 770
-                  ? "185px"
-                  : "250px",
+              transform: `translateX(${x}vw)`,
             }}
-            src={WantedImg[index]}
-          />
-        </ImgWrapper>
-        <Container>
-          <PrivewImg
-            style={{
-              opacity: 0.5,
-              width: windowWidth > 1200 ? null : `80vw`,
-              height:
-                windowWidth > 1200
-                  ? null
-                  : windowWidth < 770
-                  ? "185px"
-                  : "250px",
-            }}
-            src={WantedImg[NextImg]}
-          ></PrivewImg>
-        </Container>
-      </Row>
+          >
+            <ImgWrapper>
+              <Img
+                style={{
+                  opacity: 1,
+                  width: windowWidth > 1200 ? null : `80vw`,
+                  height:
+                    windowWidth > 1200
+                      ? null
+                      : windowWidth < 770
+                      ? "185px"
+                      : "250px",
+                }}
+                src={url.url}
+              />
+            </ImgWrapper>
+          </Row>
+        ))}
     </Wrapper>
   );
 }
