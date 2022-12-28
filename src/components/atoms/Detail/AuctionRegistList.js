@@ -12,7 +12,7 @@ const AuctionRegistList = () => {
 
     useEffect(() => {
         axios
-        .get("http://3.34.237.17:8080/", {
+        .get("http://ddang3.link/", {
             headers: {
                 Token: `${token}`
             }

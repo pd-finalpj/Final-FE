@@ -17,12 +17,11 @@ const Detail = (filteringItemsResponseList, Header) => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/api/auction/${urlaxios.id}`)
+      .get(`http:///ddang3.link/api/auction/${auctionId}`)
       .then(function (response) {
         // 성공 핸들링
         console.log(response);
         setDatas(response.data);
-        setauctionId(response.data.aftBiddingDetailsResponseList.auctionItemId);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -38,7 +37,7 @@ const Detail = (filteringItemsResponseList, Header) => {
       setLoad(true);
       try {
         const response = await axios.get(
-          `http://3.34.237.17:8080/api/auction-failed-log/${urlaxios.id}`
+          `http://ddang3.link/api/auction-failed-log/${auctionId}`
         );
         console.log(response.data);
         setFaild(response.data.auctionFailedLogDetailsResponseList);
@@ -54,7 +53,7 @@ const Detail = (filteringItemsResponseList, Header) => {
     const token = localStorage.getItem("access_token");
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/api/bidding",
+      url: "http://ddang3.link/api/bidding",
       data: {
         amount: amount,
         auctionItemId: auctionId,
@@ -75,7 +74,7 @@ const Detail = (filteringItemsResponseList, Header) => {
     const token = localStorage.getItem("access_token");
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/api/bookmark",
+      url: "http://ddang3.link/api/bookmark",
       data: {
         auctionId: auctionId,
       },

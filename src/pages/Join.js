@@ -145,11 +145,10 @@ function Signup() {
       setIsAge(true);
     }
   }, []);
-
   const onClicksignup = () => {
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/api/user/signup",
+      url: "http://ddang3.link/api/user/sign-up",
       data: {
         userId: userId,
         name: name,
@@ -162,7 +161,6 @@ function Signup() {
     })
       .then((res) => {
         alert("다시 입력해주세요");
-        document.location.href("join");
         // 작업 완료 되면 페이지 이동(새로고침)
       })
       .catch((error) => console.log(error.response));
@@ -257,7 +255,7 @@ function Signup() {
             <div className="form-floating">
               <input
                 name="password"
-                type="text"
+                type="password"
                 className="form-control UpdateSignUp_mbr_pw"
                 id="pwck"
                 placeholder="password"
@@ -294,7 +292,7 @@ function Signup() {
                 type="number"
                 className="form-control UpdateSignUp_mbr_email"
                 id="float age"
-                placeholder="Age"
+                placeholder="Birth Date"
                 value={age}
                 onChange={onChangeAge}
               />
