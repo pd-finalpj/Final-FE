@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import "./TopicRegister.css";
 
 const TopicRegister = () => {
-  const title = useState("");
-  const content = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const token = localStorage.getItem("access_token");
 
   const TopicCrate = () => {
@@ -16,8 +16,8 @@ const TopicRegister = () => {
         Token: `${token}`,
       },
       data: {
-        title: `${title}`,
-        content: `${content}`,
+        title: title,
+        content: content,
       },
     }).then((res) => {
       console.log(res.data.noticeId);
@@ -46,6 +46,10 @@ const TopicRegister = () => {
                 id="helpSearch"
                 name="helpSearch"
                 placeholder="제목을 입력하세요"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -57,6 +61,10 @@ const TopicRegister = () => {
               name="helpSearch"
               placeholder="내용을 입력하세요"
               style={{ height: "30em" }}
+              value={content}
+              onChange={(e) => {
+                setContent(e.target.value);
+              }}
             />
           </div>
 
