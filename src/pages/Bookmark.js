@@ -100,7 +100,7 @@ const Bookmark = () => {
                                 ) : (
                                   bookmark &&
                                   bookmark.map((bookmark) => (
-                                    <div style={{ display: "flex" }}>
+                                    <div>
                                       <button
                                         class="match-status isHurry"
                                         style={{

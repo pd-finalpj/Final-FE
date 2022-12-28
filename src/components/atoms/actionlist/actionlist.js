@@ -18,6 +18,7 @@ const Actionlist = ({ isClick }) => {
   const [search, setSearch] = useState("");
   const [found, setFound] = useState([]);
   const [ref, inView] = useInView();
+  const [next, setNext] = useState("");
 
   const onChange = (e) => {
     setSearch(e.target.value);
@@ -37,6 +38,7 @@ const Actionlist = ({ isClick }) => {
           ...prevState,
           ...response.data.filteringItemsResponseList,
         ]);
+        setNext(response.data.hasNext);
       });
     setLoad(false);
   }, [page]);
@@ -47,12 +49,11 @@ const Actionlist = ({ isClick }) => {
 
   useEffect(() => {
     // 사용자가 마지막 요소를 보고 있고, 로딩 중이 아니라면
-    if (inView && !load && found.hasnext === "true") {
+    if (inView && !load && next === true) {
       setPage((page) => page + 1);
     }
+    // if(found.hasNext !== "true")
   }, [inView, load, found]);
-
-  useEffect(() => {}, [setLoad]);
 
   useEffect(() => {
     if (isClick && search) {
