@@ -10,7 +10,7 @@ const ManagerMyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/api/manager/`, {
+      .get(`https:///ddang3.link/api/manager/`, {
         headers: {
           Token: `${token}`,
         },

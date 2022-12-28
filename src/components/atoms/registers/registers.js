@@ -423,16 +423,7 @@ const Registers = (props) => {
                               ></input>
                             </div>
                             <br></br>
-                            <div style={{ margin_top: "10px" }}>
-                              <span class="match-data">
-                                <img
-                                  src="https://plab-football.s3.amazonaws.com/static/img/ic_viewer.svg"
-                                  alt="img"
-                                />
-                                104
-                              </span>
-                            </div>
-                          </div>
+                            
                           <div class="match-info__fee">
                             <div class="matchFee">
                               <div class="btnWrap">
