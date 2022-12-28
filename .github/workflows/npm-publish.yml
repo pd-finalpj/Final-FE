@@ -1,0 +1,43 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: web docker login
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: web docker build
+      run: docker build --platform amd64 --build-arg DEPENDENCY=build/dependency -t ${{secrets.DOCKER_USERNAME}}/ddangddangddang .
+    - name: web docker tag 
+      run: docker tag jji0428/ddangddangddang ${{secrets.DOCKER_USERNAME}}/ddangddangddang:latest
+    - name: web docker push
+      run: docker push ${{secrets.DOCKER_USERNAME}}/ddangddangddang:latest
+        
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        port: 22
+        script: |
+          docker stop ddangddangddang
+          docker rm ddangddangddang
+          docker pull jji0428/ddangddangddang:latest
+          docker run --name ddangddangddang -d -p 80:80 jji0428/ddangddangddang:latest
+          
