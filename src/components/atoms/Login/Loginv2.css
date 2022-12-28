@@ -15,12 +15,6 @@
   max-height: 1000px;
 }
 
-@media (max-width: 1030px) {
-  .loginimg {
-    display: none;
-  }
-}
-
 .slide1 {
   max-width: 468px;
   position: relative;
@@ -30,12 +24,6 @@
 .main {
   margin-left: 19rem;
   margin-bottom: 23rem;
-}
-
-@media (max-width: 1030px) {
-  .main {
-    margin-left: 0rem;
-  }
 }
 
 .inner {

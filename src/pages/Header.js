@@ -25,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     axios
-      .get(`http:///3.34.237.17:8080/api/user/`, {
+      .get(`http:///3.34.237.17:8080/user/`, {
         headers: {
           Token: `${token}`,
         },
@@ -43,8 +43,8 @@ const Header = () => {
 
   return (
     <nav class="headerNavbar">
-      <div class="headerNavbarLogo">
-        <a href="/">
+      <Link to="/">
+        <div class="headerNavbarLogo">
           <img
             id="logo"
             src="https://ifh.cc/g/D9bX3q.png"
@@ -53,9 +53,9 @@ const Header = () => {
             height="80"
             width="80"
           ></img>
-        </a>
-        {/* 땅땅땅이미지https://ifh.cc/g/D9bX3q.png 땅3 이미지https://ifh.cc/g/QxNCbw.png */}
-      </div>
+          {/* 땅땅땅이미지https://ifh.cc/g/D9bX3q.png 땅3 이미지https://ifh.cc/g/QxNCbw.png */}
+        </div>
+      </Link>
       <div>
         <div class="headerNavbarMain" style={{ display: "flex" }}>
           <div style={{ padding_top: "0.3em" }}>

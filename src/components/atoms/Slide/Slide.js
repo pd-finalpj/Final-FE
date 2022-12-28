@@ -196,7 +196,7 @@ function Slider() {
       setX(0);
       setIsSlide(false);
     }, 500);
-    //setIndex((prev) => (prev === 7 ? 0 : prev + 1));
+    setIndex((prev) => (prev === 7 ? 0 : prev + 1));
   };
   const decreaseClick = async () => {
     if (isSlide) {
@@ -274,28 +274,6 @@ function Slider() {
   // console.log(`브라우저 사이즈 : ${windowWidth}`);
   return (
     <Wrapper>
-      <LeftButton
-        style={{
-          left:
-            windowWidth > 1800
-              ? `18.5%`
-              : windowWidth > 1500
-              ? `10%`
-              : windowWidth > 1300
-              ? `5%`
-              : `0%`,
-          visibility: windowWidth < 1335 ? "hidden" : "visible",
-        }}
-        onClick={decreaseClick}
-      >
-        <i class="fas fa-chevron-left" style={{ right: "0.5rem" }}>
-          <img
-            alt="src"
-            src="./Image/svg.png"
-            style={{ width: "30px", height: "30px", transform: "scaleX(-1)" }}
-          />
-        </i>
-      </LeftButton>
       <Row
         key={index}
         onMouseDown={onMouseDown}
@@ -367,45 +345,7 @@ function Slider() {
             src={WantedImg[NextImg]}
           ></PrivewImg>
         </Container>
-        <Container>
-          <PrivewImg
-            style={{
-              opacity: 0.5,
-              width: windowWidth > 1200 ? null : `80vw`,
-              height:
-                windowWidth > 1200
-                  ? null
-                  : windowWidth < 770
-                  ? "185px"
-                  : "250px",
-            }}
-            src={WantedImg[moreNextImg]}
-          ></PrivewImg>
-        </Container>
       </Row>
-
-      <RightButton
-        style={{
-          right:
-            windowWidth > 1800
-              ? `18.5%`
-              : windowWidth > 1500
-              ? `10%`
-              : windowWidth > 1200
-              ? `5%`
-              : `0%`,
-          visibility: windowWidth < 1335 ? "hidden" : "visible",
-        }}
-        onClick={increaseClick}
-      >
-        <i class="fas fa-chevron-right" style={{ left: "0.5rem" }}>
-          <img
-            alt="src"
-            src="./Image/svg.png"
-            style={{ width: "30px", height: "30px" }}
-          />
-        </i>
-      </RightButton>
     </Wrapper>
   );
 }

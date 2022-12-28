@@ -10,7 +10,7 @@ const ManagerMyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/manager/`, {
+      .get(`http:///3.34.237.17:8080/api/manager/`, {
         headers: {
           Token: `${token}`,
         },
@@ -46,7 +46,7 @@ const ManagerMyPageInfo = () => {
         >
           <div className="my-profile">
             <div style={{ display: "flex", alignitems: "center" }}>
-              <h1 className="my-profile_name">관리자 {datas.name}</h1>
+              <h1 className="my-profile_name">관리자</h1>
             </div>
           </div>
         </div>
@@ -81,7 +81,9 @@ const ManagerMyPageInfo = () => {
           <li className="my-status_item my-status_item-cash">
             <div>
               <p style={{ fontSize: "12px" }}>관리자</p>
-              <p style={{ fontSize: "20px", fontweight: "700" }}>윤이도</p>
+              <p style={{ fontSize: "20px", fontweight: "700" }}>
+                {datas.name}
+              </p>
             </div>
             <a href="/cash/charge">
               <div className="my-cash">

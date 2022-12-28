@@ -12,17 +12,23 @@ const Detail = (filteringItemsResponseList, Header) => {
   const [faild, setFaild] = useState([]);
   const [amount, setAmount] = useState("");
   const [auctionId, setauctionId] = useState(`${urlaxios.id}`);
+  const [startdate, setStartdate] = useState("");
+  const [enddate, setEnddate] = useState("");
 
-  console.log(urlaxios.uderid);
+  var startday = startdate.substring(0, 10);
+  var starttime = startdate.substring(11, 19);
+  var endday = enddate.substring(0, 10);
+  var endtime = enddate.substring(11, 19);
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/api/auction/${urlaxios.id}`)
+      .get(`http:///3.34.237.17:8080/api/auction/${auctionId}`)
       .then(function (response) {
         // 성공 핸들링
         console.log(response);
         setDatas(response.data);
-        setauctionId(response.data.aftBiddingDetailsResponseList.auctionItemId);
+        setStartdate(response.data.auctionStartDate);
+        setEnddate(response.data.auctionEndDate);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -329,21 +335,24 @@ const Detail = (filteringItemsResponseList, Header) => {
                           <div class="section-pc">
                             <div class="matchTime">
                               <p>
-                                시작
-                                {datas.auctionStartDate}
+                                시작: {startday}|{starttime}
                               </p>
-                              <p>종료{datas.auctionEndDate}</p>
+                              <p>
+                                종료:{endday}|{endtime}
+                              </p>
                             </div>
                             <div class="matchPlace">
                               <h1 class="txtH w700h">
                                 <a href="/stadium/38/matches/">
-                                  {datas.addressDetail}{" "}
+                                  {datas.addressDetail}
                                 </a>
                               </h1>
                               <div class="wtgTool">
                                 <p class="txt1">
-                                  {datas.location}+{datas.addressDetail}
+                                  {datas.location}
+                                  <br /> {datas.addressDetail}
                                 </p>
+                                <br />
                                 <p
                                   id="copy-url1"
                                   class="txt1"

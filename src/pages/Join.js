@@ -294,7 +294,7 @@ function Signup() {
                 type="number"
                 className="form-control UpdateSignUp_mbr_email"
                 id="float age"
-                placeholder="Age"
+                placeholder="Birth"
                 value={age}
                 onChange={onChangeAge}
               />
