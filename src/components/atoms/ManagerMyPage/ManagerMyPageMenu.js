@@ -26,7 +26,7 @@ const ManagerMyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/managerpage/myplab/">
+              <a href="/managerpage/mylab/">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_myplab_color.svg"
@@ -52,13 +52,13 @@ const ManagerMyPageMenu = () => {
               </a>
             </li>
             <li>
-              <a href="/manaerlogin">
+              <a href="/ManagerLogin">
                 <div class="my-menu-list_label">
                   <img
                     src="https://plab-football.s3.amazonaws.com/static/img/ic_logout_color.svg"
                     alt="로그아웃"
                   ></img>
-                  <p>로그아웃</p>
+                  <button onClick={logout}>로그아웃</button>
                 </div>
               </a>
             </li>

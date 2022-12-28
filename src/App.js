@@ -18,7 +18,7 @@ import ManagerJoin from "./pages/ManagerJoin";
 import TopiceRegister from "./pages/Topic/TopicRegister";
 import AuctionResult from "./pages/AuctionResult";
 import ManagerLogin from "./pages/ManagerLogin";
-
+import AuctionRegistResult from "./pages/AuctionRegistResult";
 // import {createStore} from 'redux';
 // import { Provider, useSelector, UseDispatch, connect } from 'react-redux';
 
@@ -52,6 +52,10 @@ function App() {
           <Route element={<TopiceRegister />} path="/TopicRegister"></Route>
           <Route element={<ManagerJoin />} path="/ManagerJoin"></Route>
           <Route element={<ManagerLogin />} path="/ManagerLogin"></Route>
+          <Route
+            element={<AuctionRegistResult />}
+            path="/managerpage/mylab"
+          ></Route>
         </Routes>
       </RecoilRoot>
       <Footer></Footer>

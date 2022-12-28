@@ -22,25 +22,24 @@ const AddImage = (props) => {
       imageUrlLists = imageUrlLists.slice(0, 10);
     }
 
-    formData.append('file', e.target.files[0]);
+    formData.append("file", e.target.files[0]);
     setShowImages(imageUrlLists);
-    
+
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/image-file",
+      url: "http://3.34.237.17:8080/api/image-file",
       headers: {
         Token: `${token}`,
-        'Content-Type': 'multipart/form-data'
+        "Content-Type": "multipart/form-data",
       },
-      data: formData
-    })
-    .then((res) => {
-      console.log(res)
+      data: formData,
+    }).then((res) => {
+      console.log(res);
       console.log(res.data.imageFileUrlList);
       setImageFileUrl(res.data.imageFileUrlList);
       console.log(imageFileUrl);
     });
-    
+
     props.getImageFile(imageFileUrl);
   };
 
