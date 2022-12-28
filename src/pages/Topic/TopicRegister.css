@@ -1,0 +1,21 @@
+.createTopic-button {
+  width: 140px;
+  height: 50px;
+  margin-left: 0.5em;
+  border-radius: 15px;
+  color: aliceblue;
+  background-color: cornflowerblue;
+}
+.btnsection {
+  margin-top: 1.5em;
+  margin-left: 45vh;
+  border-radius: 30px;
+}
+.helpSearch {
+  margin-top: 1em;
+}
+
+.helpHeader {
+  margin-left: 0;
+  color: cornflowerblue;
+}

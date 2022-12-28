@@ -220,7 +220,7 @@ function Slider() {
   const onMouseDown = (event) => {
     setIsClick(true);
     setMouseDownClientX(event.pageX);
-    console.log(slideRef);
+    // console.log(slideRef);
   };
   const onMouseLeave = (event) => {
     setIsClick(false);
@@ -271,7 +271,7 @@ function Slider() {
       clearTimeout(autoPage);
     };
   }, [index, isClick]);
-  console.log(`브라우저 사이즈 : ${windowWidth}`);
+  // console.log(`브라우저 사이즈 : ${windowWidth}`);
   return (
     <Wrapper>
       <LeftButton
@@ -351,24 +351,6 @@ function Slider() {
             }}
             src={WantedImg[index]}
           />
-          {!isSlide && windowWidth > 1200 ? (
-            <ImgDes>
-              <Title>{wantedTitle[index]}</Title>
-              <Des>{wantedDes[index]}</Des>
-              <LinkSpan>
-                바로가기<i class="fas fa-chevron-right"></i>
-              </LinkSpan>
-            </ImgDes>
-          ) : null}
-          {!isSlide && windowWidth <= 1200 ? (
-            <MiniWrapper>
-              <MiniTitle>{wantedTitle[index]}</MiniTitle>
-              <MiniDes>{wantedDes[index]}</MiniDes>
-              <LinkSpan>
-                바로가기<i class="fas fa-chevron-right"></i>
-              </LinkSpan>
-            </MiniWrapper>
-          ) : null}
         </ImgWrapper>
         <Container>
           <PrivewImg

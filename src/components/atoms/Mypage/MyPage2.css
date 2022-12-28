@@ -276,6 +276,7 @@ h3 {
 
 .content {
     margin: 0 auto;
+    margin-bottom: 4em;
 }
 
 .content_wrap {
@@ -1198,16 +1199,6 @@ h3 {
     padding: 15px;
 }
 
-button {
-    background-color: #1570FF;
-    border-radius: 12px;
-    padding: 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    color: white;
-}
 
 @media(min-width: 1024px) {
     .btn-wrap.bottom-fixed {
@@ -3687,6 +3678,11 @@ badge-vip {
     margin: 0 5px;
 }
 
+.navigation--container .navigation--wrapper b {
+    font-size: 16px;
+    margin: 0 5px;
+}
+
 .navigation--container .navigation--wrapper a:first-child {
     margin-left: 0;
 }
@@ -3743,6 +3739,13 @@ badge-vip {
 }
 
 @media only screen and (min-width: 1024px) {
+    .navigation--container .navigation--wrapper b {
+        font-size: 18px;
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
     .navigation--container {
         /*background-color: #F2F5F7;*/
         background-color: white;
@@ -3757,6 +3760,7 @@ badge-vip {
     .navigation--container .navigation--wrapper a {
         font-size: 18px;
         margin: 0 20px;
+        font-weight: bold;
     }
 
     .navigation--container .navigation--wrapper .navigation--help a img {

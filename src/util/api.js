@@ -1,36 +1,17 @@
-const BASE_URL = 'http://localhost:3000/';
-const CALENDAR_URL = 'http://localhost:3000/Calendar';
+import axios from "axios";
 
+const BASE_URL = "http://ddang3.link/";
 
-export const fetchCreate = (url, data, type) => {
-    fetch(url, {
-        method: "POST",
-        headers: {"Content-Type" : "application/json"},
-        body: JSON.stringify(data)
-    })
-    .then(() => {
-        if(type === 'calendar') {
-            window.location.href = CALENDAR_URL;
-        }
+export const api = axios.get({
+  baseURL: { BASE_URL },
+  //쿼리로 넘길 키들을 prams 객체에 키밸류로 순서대로 넣어준다.
+  params: {
+    api_key: "받은 api",
+    laguage: "밸류",
+  },
+});
 
-        // window.location.href = BASE_URL;
-    })
-    .catch((error) => {
-        console.error('Error', error);
-    })
-}
-
-export const fetchDelete = (url, id) => {
-    fetch(`${url}/${id}`, {
-        method: "DELETE",
-    })
-    .then(() => {
-        window.location.href = BASE_URL;
-    })
-    .catch((error) => {
-        console.error('Error', error);
-    })
-}
+export default api;
 
 // export const fetchPatch = (url, id, data) => {
 //     fetch(`${url}${id}`, {
@@ -47,16 +28,16 @@ export const fetchDelete = (url, id) => {
 //     })
 // }
 export const fetchPatch = (url, id, data) => {
-    fetch(`${url}/${id}`, {
-        method : "PATCH",
-        headers: {"Content-Type" : "Application/json"},
-        body: JSON.stringify(data)
-    })
+  fetch(`${url}/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "Application/json" },
+    body: JSON.stringify(data),
+  })
     .then(() => {
       // window.location.href = `${BASE_URL}${id}`;
-        window.location.href = BASE_URL;
+      window.location.href = BASE_URL;
     })
     .catch((error) => {
-        console.error('Error', error);
-    })
-}
+      console.error("Error", error);
+    });
+};
