@@ -80,7 +80,7 @@ const ManagerMyPageInfo = () => {
           </li>
           <li className="my-status_item my-status_item-cash">
             <div>
-              <p style={{ fontSize: "12px" }}>관리자</p>
+              <p style={{ fontSize: "12px" }}>관리자{datas.name}</p>
               <p style={{ fontSize: "20px", fontweight: "700" }}>
                 {datas.name}
               </p>

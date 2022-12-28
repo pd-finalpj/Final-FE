@@ -39,7 +39,7 @@ function App() {
           <Route element={<TopicDetail />} path="/TopicDetail/:id"></Route>
           <Route element={<Detail />} path="/Detail/:id"></Route>
           <Route element={<Mypage />} path="/Mypage/:userId"></Route>
-          <Route element={<Manager />} path="/Manager/:id"></Route>
+          <Route element={<Manager />} path="/Manager/:userId"></Route>
           <Route element={<Register />} path="/Register"></Route>
           <Route element={<Bookmark />} path="/Bookmark/:id"></Route>
           <Route

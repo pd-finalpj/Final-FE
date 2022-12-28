@@ -28,7 +28,7 @@ const ManagerLogin = () => {
         //데이터에 access_token이 있다면
         localStorage.setItem("access_token", res.data.accessToken);
         alert("로그인 성공");
-        navigate(`/Manager/${urlaxios.id}`);
+        navigate(`/Manager/${managerId}`);
         console.log(res.data.accessToken);
       })
       .catch((res) => {
