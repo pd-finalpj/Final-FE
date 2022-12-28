@@ -17,7 +17,7 @@ const Detail = (filteringItemsResponseList, Header) => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/auction/${urlaxios.id}`)
+      .get(`http:///3.34.237.17:8080/api/auction/${urlaxios.id}`)
       .then(function (response) {
         // 성공 핸들링
         console.log(response);
@@ -38,7 +38,7 @@ const Detail = (filteringItemsResponseList, Header) => {
       setLoad(true);
       try {
         const response = await axios.get(
-          `http://3.34.237.17:8080//auction-failed-log/${urlaxios.id}`
+          `http://3.34.237.17:8080/api/auction-failed-log/${urlaxios.id}`
         );
         console.log(response.data);
         setFaild(response.data.auctionFailedLogDetailsResponseList);
@@ -54,7 +54,7 @@ const Detail = (filteringItemsResponseList, Header) => {
     const token = localStorage.getItem("access_token");
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/bidding",
+      url: "http://3.34.237.17:8080/api/bidding",
       data: {
         amount: amount,
         auctionItemId: auctionId,
@@ -75,7 +75,7 @@ const Detail = (filteringItemsResponseList, Header) => {
     const token = localStorage.getItem("access_token");
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/bookmark",
+      url: "http://3.34.237.17:8080/api/bookmark",
       data: {
         auctionId: auctionId,
       },

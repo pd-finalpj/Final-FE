@@ -14,7 +14,7 @@ const ManagerLogin = () => {
   const onClickManagerLogin = () => {
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/manager/login",
+      url: "http://3.34.237.17:8080/api/manager/login",
       headers: {
         Token: `${token}`,
       },

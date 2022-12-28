@@ -11,7 +11,7 @@ const MyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/user/`, {
+      .get(`http:///3.34.237.17:8080/api/user/`, {
         headers: {
           Token: `${token}`,
         },
@@ -32,7 +32,7 @@ const MyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/bookmark`, {
+      .get(`http:///3.34.237.17:8080/api/bookmark`, {
         headers: {
           Token: `${token}`,
         },

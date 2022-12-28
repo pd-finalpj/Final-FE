@@ -16,7 +16,7 @@ const MyPageMenu = () => {
   };
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/user/`, {
+      .get(`http:///3.34.237.17:8080/api/user/`, {
         headers: {
           Token: `${token}`,
         },

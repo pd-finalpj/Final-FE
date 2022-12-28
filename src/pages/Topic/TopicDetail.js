@@ -9,7 +9,7 @@ const TopicDetail = () => {
   console.log(urlaxios);
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/notice/${urlaxios.id}`)
+      .get(`http:///3.34.237.17:8080/api/notice/${urlaxios.id}`)
       .then(function (response) {
         // 성공 핸들링
         console.log(response);

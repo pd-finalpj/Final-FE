@@ -30,11 +30,11 @@ const Bookmark = () => {
     // setdeadbtn(0)
     state = 0;
   }
-  const delbookmark = () => {
+  const delbookmark = (item) => {
     const token = localStorage.getItem("access_token");
     axios({
       method: "Delete",
-      url: `http://3.34.237.17:8080/bookmark/${bookmark.auctionId}`,
+      url: `http://3.34.237.17:8080/api/bookmark/${item.auctionItemId}`,
       data: {
         auctionItemId: item.auctionId,
       },
@@ -56,7 +56,7 @@ const Bookmark = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///3.34.237.17:8080/bookmark-list`, {
+      .get(`http:///3.34.237.17:8080/api/bookmark-list`, {
         headers: {
           Token: `${token}`,
         },
@@ -100,7 +100,7 @@ const Bookmark = () => {
                                 ) : (
                                   bookmark &&
                                   bookmark.map((bookmark) => (
-                                    <div>
+                                    <div key={bookmark.auctionItemId}>
                                       <button
                                         class="match-status isHurry"
                                         style={{
@@ -108,7 +108,7 @@ const Bookmark = () => {
                                           display: "block",
                                           height: "40px",
                                         }}
-                                        onClick={delbookmark}
+                                        onClick={() => delbookmark(bookmark)}
                                       >
                                         삭제
                                       </button>

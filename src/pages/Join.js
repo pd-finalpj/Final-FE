@@ -149,7 +149,7 @@ function Signup() {
   const onClicksignup = () => {
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/user/signup",
+      url: "http://3.34.237.17:8080/api/user/signup",
       data: {
         userId: userId,
         name: name,

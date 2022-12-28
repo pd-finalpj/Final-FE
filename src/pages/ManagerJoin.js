@@ -163,7 +163,7 @@ function Signup() {
     console.log("phonenumber", phoneNumber);
     axios({
       method: "post",
-      url: "http://localhost:8080/user/signup",
+      url: "http://localhost:8080/api/user/signup",
       data: {
         userId: userId,
         name: name,

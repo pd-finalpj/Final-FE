@@ -12,7 +12,7 @@ const Login = () => {
   const onClickLogin = () => {
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/user/login",
+      url: "http://3.34.237.17:8080/api/user/login",
       data: {
         userId: userId,
         password: password,

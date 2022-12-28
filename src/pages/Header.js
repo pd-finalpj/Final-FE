@@ -25,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     axios
-      .get(`http:///3.34.237.17:8080/user/`, {
+      .get(`http:///3.34.237.17:8080/api/user/`, {
         headers: {
           Token: `${token}`,
         },
@@ -34,16 +34,12 @@ const Header = () => {
         // 성공 핸들링
         setDatas(response.data);
         setState(true);
-        console.log(response.data);
       })
       .catch(function (error) {
         // 에러 핸들링
-        console.log(error);
         setState(false);
       });
   }, []);
-
-  console.log(state);
 
   return (
     <nav class="headerNavbar">

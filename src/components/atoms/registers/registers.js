@@ -62,7 +62,7 @@ const Registers = (props) => {
 
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/auction",
+      url: "http://3.34.237.17:8080/api/auction",
       headers: {
         Token: `${token}`,
       },
