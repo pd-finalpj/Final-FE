@@ -184,7 +184,7 @@ function DetailSlider({ datas }) {
       setIndex((prev) => (prev === 8 ? 0 : prev + 1));
       setX(0);
       setIsSlide(false);
-    }, 500);
+    }, 2000);
     //setIndex((prev) => (prev === 7 ? 0 : prev + 1));
   };
   const decreaseClick = async () => {
@@ -197,7 +197,7 @@ function DetailSlider({ datas }) {
       setIndex((prev) => (prev === 0 ? 8 : prev - 1));
       setX(0);
       setIsSlide(false);
-    }, 500);
+    }, 2000);
   };
 
   //console.log(slideRef.current);
@@ -251,7 +251,7 @@ function DetailSlider({ datas }) {
         setIndex((prev) => (prev === 8 ? 0 : prev + 1));
         setX(0);
         setIsSlide(false);
-      }, 500);
+      }, 2000);
     }, 5000);
     return () => {
       clearTimeout(autoPage);
