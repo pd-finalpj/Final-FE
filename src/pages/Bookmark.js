@@ -14,8 +14,8 @@ const Bookmark = () => {
   const [load, setLoad] = useState(false);
   const bookmark = item.bookmarkDetailsResponseList;
   var state = useState(0);
-  const Enddata = item.bookmarkDetailsResponseListauctionEndDate;
-  const diff = new Date(Enddata).getTime() - new Date().getTime();
+  const Enddata = item.auctionEndDate;
+  const diff = new Date(item.auctionEndDate).getTime() - new Date().getTime();
 
   const deadline = diff / 1000 / 60 / 60;
   // alert(deadline);
@@ -32,6 +32,7 @@ const Bookmark = () => {
   }
   const delbookmark = (item) => {
     const token = localStorage.getItem("access_token");
+    window.location.reload();
     axios({
       method: "Delete",
       url: `http://3.34.237.17:8080/api/bookmark/${item.auctionItemId}`,
@@ -45,7 +46,7 @@ const Bookmark = () => {
       .then((res) => {
         alert("삭제가 완료되었습니다");
         // 작업 완료 되면 페이지 이동(새로고침)
-        window.location.replace(`/`);
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error.response);
@@ -101,31 +102,21 @@ const Bookmark = () => {
                                   bookmark &&
                                   bookmark.map((bookmark) => (
                                     <div key={bookmark.auctionItemId}>
-                                      <button
-                                        class="match-status isHurry"
+                                      <li
+                                        class="list--match-schedule--item"
                                         style={{
-                                          width: "10%",
-                                          display: "block",
-                                          height: "40px",
+                                          width: "80%",
+                                          margin: "0 auto",
                                         }}
-                                        onClick={() => delbookmark(bookmark)}
                                       >
-                                        삭제
-                                      </button>
-                                      <Link
-                                        to={`/Detail/${bookmark.auctionItemId}`}
-                                      >
-                                        <li
-                                          class="list--match-schedule--item"
-                                          style={{
-                                            width: "80%",
-                                            margin: "0 auto",
-                                          }}
+                                        <div
+                                          class="list--match-schedule--item a"
+                                          key={bookmark.auctionItemId}
+                                          bookmark={bookmark}
+                                          style={{ width: "90%" }}
                                         >
-                                          <div
-                                            class="list--match-schedule--item a"
-                                            key={bookmark.auctionItemId}
-                                            bookmark={bookmark}
+                                          <Link
+                                            to={`/Detail/${bookmark.auctionItemId}`}
                                           >
                                             <div clwass="list--match-schedule__time">
                                               <p>
@@ -136,7 +127,10 @@ const Bookmark = () => {
                                               </p>
                                             </div>
 
-                                            <div class="list--match-schedule__info">
+                                            <div
+                                              class="list--match-schedule__info"
+                                              style={{ width: "100%" }}
+                                            >
                                               <p class="match--label early-bird">
                                                 담당부서:
                                               </p>
@@ -158,34 +152,46 @@ const Bookmark = () => {
                                                 </span>
                                               </div>
                                             </div>
-
-                                            <div class="list--match-schedule__status">
-                                              <div>
-                                                {state === 1 ? (
-                                                  <div class="match-status isOpen">
-                                                    <p>신청가능</p>
-                                                  </div>
-                                                ) : state === 2 ? (
-                                                  <div class="match-status isHurry">
-                                                    <p>마감임박!</p>
-                                                  </div>
-                                                ) : state === 0 ? (
-                                                  <div class="match-status isFull">
-                                                    <p>마감</p>
-                                                  </div>
-                                                ) : (
-                                                  <div
-                                                    class="match-status isFull"
-                                                    style={{ height: "15px" }}
-                                                  >
-                                                    <p>마감</p>
-                                                  </div>
-                                                )}
-                                              </div>
+                                          </Link>
+                                          <button
+                                            class="match-status isHurry"
+                                            style={{
+                                              width: "10%",
+                                              display: "block",
+                                              height: "40px",
+                                            }}
+                                            onClick={() =>
+                                              delbookmark(bookmark)
+                                            }
+                                          >
+                                            삭제
+                                          </button>
+                                          <div class="list--match-schedule__status">
+                                            <div>
+                                              {state === 1 ? (
+                                                <div class="match-status isOpen">
+                                                  <p>신청가능</p>
+                                                </div>
+                                              ) : state === 2 ? (
+                                                <div class="match-status isHurry">
+                                                  <p>마감임박!</p>
+                                                </div>
+                                              ) : state === 0 ? (
+                                                <div class="match-status isFull">
+                                                  <p>마감</p>
+                                                </div>
+                                              ) : (
+                                                <div
+                                                  class="match-status isFull"
+                                                  style={{ height: "15px" }}
+                                                >
+                                                  <p>마감</p>
+                                                </div>
+                                              )}
                                             </div>
                                           </div>
-                                        </li>
-                                      </Link>
+                                        </div>
+                                      </li>
                                     </div>
                                   ))
                                 )}

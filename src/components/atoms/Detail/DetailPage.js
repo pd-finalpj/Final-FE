@@ -65,7 +65,7 @@ const Detail = (filteringItemsResponseList, Header) => {
     })
       .then((res) => {
         console.log(res);
-        window.location.replace(`/`);
+        window.location.reload();
         alert("입찰이 안료되었습니다!");
         // 작업 완료 되면 페이지 이동(새로고침)
       })
@@ -84,7 +84,7 @@ const Detail = (filteringItemsResponseList, Header) => {
       },
     })
       .then((res) => {
-        window.location.replace(`/`);
+        window.location.reload();
         alert("북마크등록이 완료됬습니다!");
         // 작업 완료 되면 페이지 이동(새로고침)
       })
