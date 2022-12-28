@@ -35,7 +35,7 @@ const Bookmark = () => {
     window.location.reload();
     axios({
       method: "Delete",
-      url: `http://ddang3.link/api/bookmark/${item.auctionItemId}`,
+      url: `https://ddang3.link/api/bookmark/${item.auctionItemId}`,
       data: {
         auctionItemId: item.auctionId,
       },
@@ -57,7 +57,7 @@ const Bookmark = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///ddang3.link/api/bookmark-list`, {
+      .get(`https:///ddang3.link/api/bookmark-list`, {
         headers: {
           Token: `${token}`,
         },

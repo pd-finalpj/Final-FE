@@ -9,7 +9,7 @@ const TopicDetail = () => {
   console.log(urlaxios);
   useEffect(() => {
     axios
-      .get(`http:///ddang3.link/api/notice/${urlaxios.id}`)
+      .get(`https:///ddang3.link/api/notice/${urlaxios.id}`)
       .then(function (response) {
         // 성공 핸들링
         console.log(response);

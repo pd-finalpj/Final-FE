@@ -14,7 +14,7 @@ const AuctionResultsDetails = () => {
 
   useEffect(() => {
     axios
-      .get("http://ddang3.link/api/aft-bidding-list", {
+      .get("https://ddang3.link/api/aft-bidding-list", {
         headers: {
           Token: `${token}`,
         },
@@ -29,7 +29,7 @@ const AuctionResultsDetails = () => {
   }, []);
   useEffect(() => {
     axios
-      .get("http://ddang3.link/api/bidding-list", {
+      .get("https://ddang3.link/api/bidding-list", {
         headers: {
           Token: `${token}`,
         },

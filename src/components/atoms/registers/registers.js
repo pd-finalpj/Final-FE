@@ -77,6 +77,7 @@ const Registers = (props) => {
       },
     }).then((res) => {
       console.log(res.data.auctionItemId);
+      window.location.replace(`/`);
     });
   };
 
@@ -259,8 +260,7 @@ const Registers = (props) => {
                                   ></input>
                                   <strong className="color-black"></strong>
                                 </td>
-                              </tr>
-                              <tr>
+
                                 <th>
                                   <strong>도로명주소</strong>
                                 </th>
