@@ -12,7 +12,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [passwordCheck, setpwck] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
-  const [age, setAge] = useState("");
+  const [birth, setBirth] = useState("");
 
   const [isuserId, setIsId] = useState(false);
   const [isName, setIsName] = useState(false);
@@ -21,7 +21,7 @@ function Signup() {
   const [isPassword, setIsPassword] = useState(false);
   const [isphoneNumber, setIsphoneNumber] = useState(false);
   const [isPwck, setIspwck] = useState(false);
-  const [isAge, setIsAge] = useState(false);
+  const [isBirth, setIsBirth] = useState(false);
 
   const [userIdMessage, setuserIdMessage] = useState();
   const [nameMessage, setNameMessage] = useState("");
@@ -30,7 +30,7 @@ function Signup() {
   const [passwordMessage, setPasswordMessage] = useState("");
   const [phoneNumberMessage, setphoneNumberMessage] = useState();
   const [pwckMessage, setPwCkMessage] = useState();
-  const [AgeMessage, setAgeMessage] = useState();
+  const [birthMessage, setBirthMessage] = useState();
   const [color, setColor] = useState({ color: "#1739a9" });
 
   const onChangeuserId = useCallback((e) => {
@@ -108,8 +108,8 @@ function Signup() {
 
   const onChangePwck = useCallback((e) => {
     setpwck(e.target.value);
-    var check = document.getElementById("pwck").value;
-    if (e.target.valuse !== check) {
+    var check = document.getElementById("pw").value;
+    if (e.target.value !== check) {
       setPwCkMessage("비밀번호를 확인해주세요.");
       setIspwck(false);
     } else {
@@ -130,19 +130,19 @@ function Signup() {
       setColor({ color: "blue" });
     }
   }, []);
-  const onChangeAge = useCallback((e) => {
-    setAge(e.target.value);
-    let agecheck = /^[0-9]+$/;
-    const ageCurrent = e.target.value;
+  const onChangeBirth = useCallback((e) => {
+    setBirth(e.target.value);
+    let birthcheck = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
+    const birthCurrent = e.target.value;
 
-    setAge(ageCurrent);
+    setBirth(birthCurrent);
 
-    if (!agecheck.test(ageCurrent)) {
-      setAgeMessage("잘못된거같아요!");
-      setIsAge(false);
+    if (!birthcheck.test(birthCurrent)) {
+      setBirthMessage("잘못 된 거 같아요!");
+      setIsBirth(false);
     } else {
-      setAgeMessage("잘입력된거같아요! :)");
-      setIsAge(true);
+      setBirthMessage("잘 입력된 거 같아요! :)");
+      setIsBirth(true);
     }
   }, []);
 
@@ -153,7 +153,7 @@ function Signup() {
       data: {
         userId: userId,
         name: name,
-        age: age,
+        birth: birth,
         nickname: nickname,
         email: email,
         passwordCheck: passwordCheck,
@@ -257,9 +257,9 @@ function Signup() {
             <div className="form-floating">
               <input
                 name="password"
-                type="text"
+                type="password"
                 className="form-control UpdateSignUp_mbr_pw"
-                id="pwck"
+                id="pw"
                 placeholder="password"
                 value={password}
                 onChange={onChangePassword}
@@ -287,20 +287,20 @@ function Signup() {
                 </span>
               )}
             </div>
-            {/* age*/}
+            {/* birth date*/}
             <div className="form-floating" id="age">
               <input
                 name=""
                 type="number"
                 className="form-control UpdateSignUp_mbr_email"
                 id="float age"
-                placeholder="Age"
-                value={age}
-                onChange={onChangeAge}
+                placeholder="birth date"
+                value={birth}
+                onChange={onChangeBirth}
               />
-              {age.length > 0 && (
-                <span className={`message ${isAge ? "success" : "error"}`}>
-                  {AgeMessage}
+              {birth.length > 0 && (
+                <span className={`message ${isBirth ? "success" : "error"}`}>
+                  {birthMessage}
                 </span>
               )}
             </div>
