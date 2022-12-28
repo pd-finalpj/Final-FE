@@ -28,7 +28,7 @@ const AuctionManagerRegistList = () => {
 
     await axios
       .get(
-        `http://3.34.237.17:8080/api/auction-list/by-manager/?pageNum=${page}`,
+        `http://ddang3.link/api/auction-list/by-manager/?pageNum=${page}`,
         {
           headers: {
             Token: `${token}`,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://3.34.237.17:8080/";
+const BASE_URL = "http://ddang3.link/";
 
 export const api = axios.get({
   baseURL: { BASE_URL },

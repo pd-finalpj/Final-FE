@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "http:///3.34.237.17:8080/",
+      target: "http:///ddang3.link/",
       changeOrigin: true,
     })
   );

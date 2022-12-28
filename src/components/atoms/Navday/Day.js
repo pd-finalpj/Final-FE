@@ -3,12 +3,10 @@ import "../../style/css/Slide.css";
 import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import "./Day.css";
-
 const Day = ({ isClick, setClicked }) => {
   const onclickhandler = (date) => {
     setClicked(date);
   };
-
   const Container = styled.div`
     width: 120px;
     height: 40px;

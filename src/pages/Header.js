@@ -25,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     axios
-      .get(`http:///3.34.237.17:8080/user/`, {
+      .get(`http:///ddang3.link/api/user/`, {
         headers: {
           Token: `${token}`,
         },

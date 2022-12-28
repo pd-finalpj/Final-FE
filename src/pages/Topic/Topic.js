@@ -12,7 +12,7 @@ const Topic = () => {
       setLoad(true);
       try {
         const response = await axios.get(
-          "http:///3.34.237.17:8080/api/notice-list"
+          "http:///ddang3.link/api/notice-list"
         );
         console.log(response.data);
         setDatas(response.data.noticeDetailsResponseList);

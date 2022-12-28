@@ -11,7 +11,7 @@ const TopicRegister = () => {
   const TopicCrate = () => {
     axios({
       method: "post",
-      url: "http://3.34.237.17:8080/notice",
+      url: "http://ddang3.link/notice",
       headers: {
         Token: `${token}`,
       },

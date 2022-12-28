@@ -25,14 +25,14 @@ const Footer = () => {
                     <ul class="footerDul">
                         <h3>사용한 사이트</h3>
                         <li>
-                            <a href="https://www.plabfootball.com/">카피웹사이트</a>
+                            <a href="https://www.plabfootball.com/" target="_blank">카피웹사이트</a>
                         </li>
                         <li>
-                            <a href="https://www.freelogodesign.org/">로고제작</a>
+                            <a href="https://www.freelogodesign.org/" target="_blank">로고제작</a>
                         </li>
 
                         <li>
-                            <a href="https://www.iconfinder.com/">아이콘</a>
+                            <a href="https://www.iconfinder.com/" target="_blank">아이콘</a>
                         </li>
 
                     </ul>
@@ -40,13 +40,13 @@ const Footer = () => {
                     <ul>
                         <h3>땅땅땅!</h3>
                         <li>
-                            <a href="">땅땅땅! 소개</a>
+                            <a>땅땅땅! 소개</a>
                         </li>
                         <li>
-                            <a href="">공지사항</a>
+                            <a href="/topic">공지사항</a>
                         </li>
                         <li>
-                            <a href="">자주 묻는 질문</a>
+                            <a>자주 묻는 질문</a>
                         </li>                    
                     </ul>
 
@@ -60,11 +60,11 @@ const Footer = () => {
                 </div>
                 <div class = "company">
                     <h2>
-                        <a href="http://localhost:3000/">
+                        <a href="/">
                             <img id="logo" src='https://ifh.cc/g/DKNAVf.png' border='0' alt="사이트로고" height="80" width="80"></img>
                         </a>
                         <br></br>
-                        <a href="">ddangddangddang.com</a>
+                        <a href="/">ddangddangddang.com</a>
                         <p>집을 마련하고 싶을 땐, 땅땅땅!</p>
                         {/* <a><img src='https://ifh.cc/g/DKNAVf.png' border='0'></img></a> */}
                     </h2>                 
