@@ -258,7 +258,7 @@ function DetailSlider({ datas }) {
     };
   }, [index, isClick]);
   // console.log(`브라우저 사이즈 : ${windowWidth}`);
-  const imgset = datas && datas.map((url, index) => datas[index].url);
+
   return (
     <Wrapper>
       {datas &&

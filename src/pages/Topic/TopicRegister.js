@@ -11,7 +11,7 @@ const TopicRegister = () => {
   const TopicCrate = () => {
     axios({
       method: "post",
-      url: "https://ddang 3.link/notice",
+      url: "https://ddang3.link/api/notice",
       headers: {
         Token: `${token}`,
       },
@@ -20,6 +20,7 @@ const TopicRegister = () => {
         content: content,
       },
     }).then((res) => {
+      window.location.replace(`/Topic`);
       console.log(res.data.noticeId);
     });
   };

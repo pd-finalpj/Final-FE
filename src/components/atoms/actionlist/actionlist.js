@@ -27,7 +27,7 @@ const Actionlist = ({ isClick }) => {
   const getItems = useCallback(async () => {
     setLoad(true);
     await axios
-      .get(`http:///ddang3.link/api/auction-list/?pageNum= ${page}`)
+      .get(`https:///ddang3.link/api/auction-list/?pageNum= ${page}`)
       .then((response) => {
         setItem((prevState) => [
           ...prevState,
