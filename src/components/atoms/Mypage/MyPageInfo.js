@@ -11,7 +11,7 @@ const MyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///ddang3.link/api/user/`, {
+      .get(`https:///ddang3.link/api/user/`, {
         headers: {
           Token: `${token}`,
         },
@@ -32,7 +32,7 @@ const MyPageInfo = () => {
 
   useEffect(() => {
     axios
-      .get(`http:///ddang3.link/api/bookmark`, {
+      .get(`https:///ddang3.link/api/bookmark`, {
         headers: {
           Token: `${token}`,
         },

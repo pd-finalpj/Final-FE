@@ -12,7 +12,7 @@ const Login = () => {
   const onClickLogin = () => {
     axios({
       method: "post",
-      url: "http://ddang3.link/api/user/login",
+      url: "https://ddang3.link/api/user/login",
       data: {
         userId: userId,
         password: password,

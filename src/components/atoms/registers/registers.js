@@ -15,7 +15,6 @@ const CreateListDiv = styled.div`
 `;
 
 const Registers = (props) => {
-
   const token = localStorage.getItem("access_token");
   const [itemCategory, setItemCategory] = useState("");
   const [auctionItemCaseNumber, setAuctionItemCaseNumber] = useState("");
@@ -35,34 +34,30 @@ const Registers = (props) => {
   const getImageFile = (elements) => {
     setImageFiles(elements);
   };
-  
+
   // for address components
-  const addressDetailSeperator = (() => {
-    
-    const addressDetailComponents = address.split(' ');
+  const addressDetailSeperator = () => {
+    const addressDetailComponents = address.split(" ");
     const regexp = /동$/;
     const regexp2 = /[0-9]/;
-    
+
     for (let i = 0; i < addressDetailComponents.length; i++) {
-      
       if (regexp.exec(addressDetailComponents[i]) != null) {
         setLocation(addressDetailComponents[i]);
       }
-      
+
       if (regexp2.test(addressDetailComponents[i])) {
         setLotNumber(addressDetailComponents[i]);
       }
-      
     }
-  });
-  
-  const onClickRegist = () => {
+  };
 
+  const onClickRegist = () => {
     addressDetailSeperator();
 
     axios({
       method: "post",
-      url: "http://ddang3.link/api/auction",
+      url: "https://ddang3.link/api/auction",
       headers: {
         Token: `${token}`,
       },
@@ -78,13 +73,12 @@ const Registers = (props) => {
         auctionEndDate: auctionEndDate,
         itemCategory: itemCategory,
         areaSize: areaSize,
-        imageUrlList: imageFiles
-      }
-    })
-    .then((res) => {
+        imageUrlList: imageFiles,
+      },
+    }).then((res) => {
       console.log(res.data.auctionItemId);
-    })
-  }
+    });
+  };
 
   return (
     <div className="content-back">
@@ -98,13 +92,15 @@ const Registers = (props) => {
                     <div class="view-top-category-table">
                       <div class="view-top-category-inner">
                         <div class="view-top-category-list">
-                          <div class="list-cell color-nice-blue">
-                          </div>
+                          <div class="list-cell color-nice-blue"></div>
                           <div class="list-cell">이미지를 추가하세요.</div>
                         </div>
                       </div>
                       <div className="content-wrap">
-                        <AddImage getImageFile={getImageFile} imageFiles={imageFiles}/>
+                        <AddImage
+                          getImageFile={getImageFile}
+                          imageFiles={imageFiles}
+                        />
                       </div>
                     </div>
                   </div>
@@ -152,13 +148,19 @@ const Registers = (props) => {
                                 <th>
                                   <strong>물건종류</strong>
                                 </th>
-                                <td 
+                                <td
                                 //class="text-align-left"
                                 >
-                                  <select value={itemCategory}
-                                  style = {{height: "30px", lineHeight: "20px"}}
-                                  onChange={(e) => 
-                                  setItemCategory(e.target.value)}>
+                                  <select
+                                    value={itemCategory}
+                                    style={{
+                                      height: "30px",
+                                      lineHeight: "20px",
+                                    }}
+                                    onChange={(e) =>
+                                      setItemCategory(e.target.value)
+                                    }
+                                  >
                                     <option value="HOUSE">단독주택</option>
                                     <option value="APARTMENT">아파트</option>
                                     <option value="VILLA">빌라</option>
@@ -208,7 +210,9 @@ const Registers = (props) => {
                                       className="casenb"
                                       placeholder="입력하세요"
                                       onChange={(e) => {
-                                        setAppraisedValue(parseFloat(e.target.value));
+                                        setAppraisedValue(
+                                          parseFloat(e.target.value)
+                                        );
                                       }}
                                     ></input>
                                   </strong>
@@ -369,8 +373,26 @@ const Registers = (props) => {
                       <div class="content-right-body__wrap--sticky">
                         <div class="section-pc">
                           <div class="matchTime">
-                            <p>시작: <input type="datetime-local" value={auctionStartDate} onChange={(e) => {setAuctionStartDate(e.target.value)}}></input></p>
-                            <p>종료: <input type="datetime-local" value={auctionEndDate} onChange={(e) => {setAuctionEndDate(e.target.value)}}></input></p>
+                            <p>
+                              시작:{" "}
+                              <input
+                                type="datetime-local"
+                                value={auctionStartDate}
+                                onChange={(e) => {
+                                  setAuctionStartDate(e.target.value);
+                                }}
+                              ></input>
+                            </p>
+                            <p>
+                              종료:{" "}
+                              <input
+                                type="datetime-local"
+                                value={auctionEndDate}
+                                onChange={(e) => {
+                                  setAuctionEndDate(e.target.value);
+                                }}
+                              ></input>
+                            </p>
                           </div>
 
                           <div class="matchPlace">

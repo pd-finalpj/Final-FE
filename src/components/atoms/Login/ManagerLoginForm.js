@@ -14,7 +14,7 @@ const ManagerLogin = () => {
   const onClickManagerLogin = () => {
     axios({
       method: "post",
-      url: "http://ddang3.link/api/manager/login",
+      url: "https://ddang3.link/api/manager/login",
       headers: {
         Token: `${token}`,
       },
