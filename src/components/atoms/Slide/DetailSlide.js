@@ -274,6 +274,36 @@ function DetailSlider({ datas }) {
               transform: `translateX(${x}vw)`,
             }}
           >
+            <Container>
+              <PrivewImg
+                style={{
+                  opacity: 0.5,
+                  width: windowWidth > 1200 ? null : `80vw`,
+                  height:
+                    windowWidth > 1200
+                      ? null
+                      : windowWidth < 770
+                      ? "185px"
+                      : "250px",
+                }}
+                src={url.url}
+              ></PrivewImg>
+            </Container>
+            <Container>
+              <PrivewImg
+                style={{
+                  opacity: 0.5,
+                  width: windowWidth > 1200 ? null : `80vw`,
+                  height:
+                    windowWidth > 1200
+                      ? null
+                      : windowWidth < 770
+                      ? "185px"
+                      : "250px",
+                }}
+                src={url.url}
+              ></PrivewImg>
+            </Container>
             <ImgWrapper>
               <Img
                 style={{
@@ -289,6 +319,36 @@ function DetailSlider({ datas }) {
                 src={url.url}
               />
             </ImgWrapper>
+            <Container>
+              <PrivewImg
+                style={{
+                  opacity: 0.5,
+                  width: windowWidth > 1200 ? null : `80vw`,
+                  height:
+                    windowWidth > 1200
+                      ? null
+                      : windowWidth < 770
+                      ? "185px"
+                      : "250px",
+                }}
+                src={url.url}
+              ></PrivewImg>
+            </Container>
+            <Container>
+              <PrivewImg
+                style={{
+                  opacity: 0.5,
+                  width: windowWidth > 1200 ? null : `80vw`,
+                  height:
+                    windowWidth > 1200
+                      ? null
+                      : windowWidth < 770
+                      ? "185px"
+                      : "250px",
+                }}
+                src={url.url}
+              ></PrivewImg>
+            </Container>
           </Row>
         ))}
     </Wrapper>

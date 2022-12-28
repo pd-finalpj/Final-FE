@@ -28,11 +28,7 @@ const ManagerMyPageInfo = () => {
         // 항상 실행되는 영역
       });
   }, []);
-
-  const logout = () => {
-    Navigate(`/ManagerLogin`);
-    window.localStorage.removeItem("access_token");
-  };
+  console.log(datas);
 
   return (
     <div class="content-body_left-wrap">

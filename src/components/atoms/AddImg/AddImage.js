@@ -27,7 +27,7 @@ const AddImage = (props) => {
 
     axios({
       method: "post",
-      url: "http://ddang3.link/api/image-file",
+      url: "https://ddang3.link/api/image-file",
       headers: {
         Token: `${token}`,
         "Content-Type": "multipart/form-data",
