@@ -260,114 +260,28 @@ const Registers = (props) => {
                                   <strong className="color-black"></strong>
                                 </td>
                               </tr>
+                              <tr>
+                                <th>
+                                  <strong>도로명주소</strong>
+                                </th>
+                                <td class="text-align-center">
+                                  <input
+                                    type="text"
+                                    name="addressCode"
+                                    className="casenb"
+                                    placeholder="입력하세요"
+                                    value={location}
+                                    onChange={(e) => {
+                                      setLocation(e.target.value);
+                                    }}
+                                  ></input>
+                                  <strong className="color-black"></strong>
+                                </td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
                       </div>
-                      {/* <div class="print-area-content" data-print-value="2">
-                        <div class="view-content-title-group">
-                          <h3 class="view-content-title">입찰 진행 내용</h3>
-                        </div>
-                        <table class="table auction-iiprogress">
-                          <colgroup>
-                            <col style={{ width: "70px" }} />
-                            <col style={{ width: "auto" }} />
-                            <col style={{ width: "auto" }} />
-                            <col style={{ width: "67px" }} />
-                          </colgroup>
-                          <thead>
-                            <tr>
-                              <th>구분</th>
-                              <th>입찰기일</th>
-                              <th>최저매각가격</th>
-                              <th>상태</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr class="point">
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td class="text-align-right">
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                            </tr>
-                            <tr class="point">
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td class="text-align-right">
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                            </tr>
-                            <tr class="point">
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td class="text-align-right">
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                              <td>
-                                <input
-                                  className="casenb"
-                                  placeholder="입력하세요"
-                                ></input>
-                              </td>
-                            </tr>
-                            <tr>
-                              <button className="backauction">+</button>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div> */}
                     </div>
                     <div>
                       <div class="content-right-body__wrap--sticky">
@@ -423,7 +337,8 @@ const Registers = (props) => {
                               ></input>
                             </div>
                             <br></br>
-                            
+                            <div style={{ margin_top: "10px" }}></div>
+                          </div>
                           <div class="match-info__fee">
                             <div class="matchFee">
                               <div class="btnWrap">
