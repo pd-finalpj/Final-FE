@@ -22,19 +22,40 @@ const AuctionManagerRegistList = () => {
   const onClickDetail = (auctionId) => {
     navigate(`/Detail/${auctionId}`);
   };
+  const onClickDelete = (auctionId) => {
+    const token = localStorage.getItem("access_token");
+    window.location.reload();
+    axios({
+      method: "Delete",
+      url: `https://ddang3.link/api/auction/${auctionId}`,
+      data: {
+        auctionItemId: auctionId,
+      },
+      headers: {
+        Token: `${token}`,
+      },
+    })
+      .then((res) => {
+        alert("삭제가 완료되었습니다");
+        // 작업 완료 되면 페이지 이동(새로고침)
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response);
+        alert("삭제가 어렵습니다!");
+        window.location.replace(`/`);
+      });
+  };
 
   const getItems = useCallback(async () => {
     setLoad(true);
 
     await axios
-      .get(
-        `http://ddang3.link/api/auction-list/by-manager/?pageNum=${page}`,
-        {
-          headers: {
-            Token: `${token}`,
-          },
-        }
-      )
+      .get(`https://ddang3.link/api/auction-list/by-manager/?pageNum=${page}`, {
+        headers: {
+          Token: `${token}`,
+        },
+      })
       .then((res) => {
         console.log(res.data.filteringItemsResponseList);
         setItem((prevState) => [
@@ -99,6 +120,13 @@ const AuctionManagerRegistList = () => {
                       onClick={() => onClickDetail(item.auctionItemId)}
                     >
                       상세보기
+                    </button>
+                    <button
+                      style={{ borderRadius: "20px", width: "40px" }}
+                      class="match-status isHurry"
+                      onClick={() => onClickDelete(item.auctionItemId)}
+                    >
+                      삭제
                     </button>
                   </li>
                 )}
